@@ -1,0 +1,114 @@
+header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-color);
+}
+.head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 0 20%;
+}
+img {
+  width: 137px;
+  height: 57px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  width: 100%;
+  color: #888888;
+  font-size:1.1rem;
+}
+.nav > a {
+  text-decoration: none;
+  color: #888888;
+  font-weight: 4 00;
+  padding: 10px 10px;
+  border-radius: 6px;
+}
+.nav > a:hover {
+  text-decoration: none;
+  background-color: hsla(0, 0%, 51%, 0.13);
+  color: #333;
+  transition: 0.2s;
+}
+.login {
+  color: hsl(220, 99%, 27%);
+  border: 2px solid hsl(220, 99%, 27%);
+}
+.registro {
+  background-color: #008a00;
+  color: white;
+}
+.registro:hover {
+  background-color: hsl(108, 92%, 19%);
+  color: white;
+  transition: 0.2s;
+}
+.login:hover {
+  background-color: hsl(220, 99%, 27%);
+  color: white;
+  transition: 0.2s;
+}
+
+.button-left > a {
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.button-left {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+// Path: emprega-social/src/app/layout/header/header.component.html
+// Mudança de estilo para 1920, 1366, 1280, 1024, 768, 375
+
+@media screen and (max-width: 1920px) {
+  .head {
+    margin: 0 20%;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .head {
+    margin: 0 15%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .head {
+    margin: 0 10%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .head {
+    margin: 0 5%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .head {
+    margin: 0 2%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .head {
+    margin: 0 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav {
+    visibility: hidden;
+    display: none;
+  }
+  .button-left {
+    display: none;
+  }
+}

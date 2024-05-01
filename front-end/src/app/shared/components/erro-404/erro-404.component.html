@@ -1,0 +1,28 @@
+<div class="max-w-full h-screen flex flex-col">
+
+  <nav class="bg-whit border-b-2 bg-white border-cgray-light">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4">
+      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="assets/icons/logotipo.svg" class="h-12.5" alt="Logo Emprega Social" />
+      </a>
+      <div class="items-center justify-center flex w-auto" id="navbar-cta">
+        <span class="font-medium text-lg border-l-2 border-l-erro px-4 py-1 ml-5 text-erro">ERRO 404</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="w-full flex items-center justify-center flex-1">
+    <div class="flex flex-col items-center justify-center px-5">
+      <h1 class="text-primary text-4xl font-semibold mt-8">Ops!!</h1>
+      <p class="text-cgray font-regular text-center mt-4">Não encontramos a página que você está procurando. Erro 404
+      </p>
+      <button type="button" (click)="voltar()"
+        class="text-white
+        bg-primary cursor-pointer flex items-center justify-between hover:bg-primary-hover font-regular focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 py-2.5 mt-8">
+        <svg class="w-5 h-5 text-white mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M13 5H1m0 0 4 4M1 5l4-4"></path>
+        </svg>Voltar para a página inicial</button>
+    </div>
+  </div>

@@ -1,0 +1,10 @@
+a.active {
+  color: #000000;
+  font-family: Signika-SemiBold;
+}
+
+@media (max-width: 765px) {
+  a.active {
+    background-color: #F2D524;
+  }
+}

@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*------------------------------------------/*
+#FONTES QUE SERÃO UTILIZADAS NO PROJETO
+/*------------------------------------------*/
+@font-face {
+  font-family: Signika-Bold;
+  src: url(./assets/fonts/Signika-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Signika-Regular;
+  src: url(./assets/fonts/Signika-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Signika-Light;
+  src: url(./assets/fonts/Signika-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Signika-SemiBold;
+  src: url(./assets/fonts/Signika-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Signika-Medium;
+  src: url(./assets/fonts/Signika-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Signika-Bold;
+  src: url(./assets/fonts/Signika-Bold.ttf) format('truetype');
+}
+
+/*------------------------------------------/*
+#RESET DE ESTILOS
+/*------------------------------------------*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

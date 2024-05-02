@@ -6,8 +6,4 @@ export const routes: Routes = [
         path:'',
         component: HomeComponent,
     },
-    // {
-    //     path:'/jobs',
-    //     component: JobsComponent,
-    // }
 ];

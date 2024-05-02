@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { OnInit } from '@angular/core';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -14,4 +16,8 @@ import { HomeComponent } from './home/home.component';
 })
 export class AppComponent {
   title = 'emprega-social';
+  
+  ngOnInit(): void {
+    initFlowbite();
+  }
 }

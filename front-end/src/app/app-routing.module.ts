@@ -4,17 +4,17 @@ import { Erro404Component } from './shared/components/erro-404/erro-404.componen
 
 const routes: Routes = [
   {
-      path: '',
-      loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    path: '',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-      path: '**',
-      component: Erro404Component
-  }
+    path: '**',
+    component: Erro404Component,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

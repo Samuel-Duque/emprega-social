@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { VagasComponent } from './pages/vagas/vagas.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './auth/login/login.component';
+import { CadastroProfissionalComponent } from './auth/cadastro-profissional/cadastro-profissional.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'cadastro-profissional',
+    component: CadastroProfissionalComponent,
   },
 ];
 

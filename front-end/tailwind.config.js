@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
-    "./node_modules/flowbite/**/*.js" // add this line
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
@@ -30,11 +30,32 @@ module.exports = {
       },
       textColor: {
         'primary': '#000000',
-      }
+      },
+      animation: {
+        fadeIn: 'fadeIn 1s ease-in-out',
+        fadeInDelay: 'fadeIn 1s ease-in-out 1s',
+        bounce: 'bounce 2s infinite'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        bounce: {
+          '0%, 20%, 50%, 80%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '40%': {
+            transform: 'translateY(-30px)'
+          },
+          '60%': {
+            transform: 'translateY(-15px)'
+          }
+        }
+      },
     },
   },
   plugins: [
     require('flowbite/plugin')
   ],
 }
-

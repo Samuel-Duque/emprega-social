@@ -1,112 +1,50 @@
-<nav class="bg-whit border-b-2 border-cgray-light bg-white">
-  <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
-  >
+<nav class="bg-white border-b-2 border-gray-light ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img
-        src="assets/icons/logotipo.svg"
-        class="h-12.5"
-        alt="Logo Emprega Social"
-      />
+      <img src="assets/icons/logotipo.svg" class="h-12.5" alt="Logo Emprega Social" />
     </a>
     <div class="flex md:order-2 justify-center items-center">
-      <button
-        type="button" routerLink="/login"
-        class="text-secondary hidden sm:flex bg-white border-2 border-secondary focus:outline-none hover:text-white hover:bg-secondary focus:ring-4 focus:ring-gray-100 font-semibold rounded-md text-sm px-5 py-2.5"
-      >
+      <button type="button" routerLink="/login" class="text-secondary hidden sm:flex bg-white border-2 border-secondary focus:outline-none hover:text-white hover:bg-secondary focus:ring-4 focus:ring-gray-100 font-semibold rounded-md text-sm px-5 py-2.5">
         Acessar
       </button>
-      <button
-        type="button"
-        routerLink="/cadastro-profissional"
-        class="text-white hidden sm:flex ml-4 sm:mr-4 bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 py-2.5 text-center"
-      >
+      <button type="button" routerLink="/cadastro-profissional" class="text-white hidden sm:flex ml-4 sm:mr-4 bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 py-2.5 text-center">
         Cadastrar
       </button>
-
-      <button
-        data-collapse-toggle="navbar-cta"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-cta"
-        aria-expanded="false"
-      >
+      <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
         <span class="sr-only">Abrir menu principal</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
         </svg>
       </button>
     </div>
-    <div
-      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-      id="navbar-cta"
-    >
-      <ul
-        class="flex flex-col font-regular p-4 md:p-0 mt-4 border rounded-md bg-cgray-dark md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white"
-      >
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+      <ul class="flex flex-col font-regular p-4 md:p-0 mt-4 border rounded-md bg-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
         <li>
-          <a
-            routerLink="/"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            class="block py-2 px-3 md:p-0 text-cgray rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary"
-            aria-current="page"
-            >Início</a
-          >
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary" aria-current="page">Início</a>
         </li>
         <li>
-          <a
-            routerLink="/vagas"
-            routerLinkActive="active"
-            class="block py-2 px-3 md:p-0 text-cgray rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary"
-            >Vagas</a
-          >
+          <a routerLink="/vagas" routerLinkActive="active" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary">Vagas</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="block py-2 px-3 md:p-0 text-cgray rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary"
-            >Qualificações</a
-          >
+          <a href="#" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary">Qualificações</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="block py-2 px-3 md:p-0 text-cgray rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary"
-            >Para Empresas</a
-          >
+          <a href="#" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary">Para Empresas</a>
         </li>
-
-        <button
-          type="button"
-          routerLink="/login"
-          class="text-secondary sm:hidden mt-4 bg-white border-2 border-secondary focus:outline-none hover:text-white hover:bg-secondary focus:ring-4 focus:ring-gray-100 font-semibold rounded-md text-sm px-5 py-2.5"
-        >
+        <button type="button" routerLink="/login" class="text-secondary sm:hidden mt-4 bg-white border-2 border-secondary focus:outline-none hover:text-white hover:bg-secondary focus:ring-4 focus:ring-gray-100 font-semibold rounded-md text-sm px-5 py-2.5">
           Acessar
         </button>
-
-        <button
-          type="button"
-          routerLink="/login"
-          class="text-white sm:hidden mt-2 bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 py-2.5 text-center"
-        >
+        <button type="button" routerLink="/login" class="text-white sm:hidden mt-2 bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 py-2.5 text-center">
           Cadastrar
         </button>
       </ul>
     </div>
   </div>
 </nav>
+
+
+
+
+
 
 <router-outlet></router-outlet>

@@ -4,7 +4,7 @@ from core.auth import validate_jwt
 from modules.candidato.models.vaga import Vaga
 
 
-router = APIRouter(tags=["Candidato"])
+router = APIRouter(tags=["vaga"])
 
 # Vagas
 @router.get("/vagas")
@@ -14,6 +14,11 @@ async def obter_vagas(page: int, pageSize: int):
 @router.get("/vagas/{id}")
 async def obter_vaga(id: int):
     return {id}
+
+@router.get("/vagas/criar", response_model=Vaga)
+async def obter_vaga(vaga: Vaga):
+    
+    return vaga
 
 # Perfil
 @router.get("/perfil", )

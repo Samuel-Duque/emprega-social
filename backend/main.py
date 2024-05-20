@@ -5,7 +5,7 @@ from typing import Union
 
 #Rotas
 from modules.auth import authrouter
-from modules.candidato import candidatorouter
+from modules.candidato import vagarouter
 
 app = FastAPI(
     title="API do Projeto Emprega Social", 
@@ -27,8 +27,9 @@ def read_root():
     return "Olá"
 
 app.include_router(authrouter.router, prefix="/api/v1/auth")
-app.include_router(candidatorouter.router, prefix="/api/v1/candidato")
+app.include_router(vagarouter.router, prefix="/api/v1/vaga")
 
 # Inicializando o servidor
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)
+

@@ -54,6 +54,6 @@ export class VagasComponent {
       modelo: 'Efetivo',
       pcD: true,
       logo: '/assets/images/logo3.png'
-    }
+    },
   ];
 }

@@ -22,5 +22,8 @@ def validate_jwt(authorization: Annotated[str, Header()]) -> str:
     except jwt.InvalidSignatureError as e:
         print(f"Error: {e}")
         raise HTTPException(status_code=400, detail="Invalid Authorization")
+    except Exception as e:
+        print(f"Error: {e}")
+        raise HTTPException(status_code=400, detail="Invalid Authorization")
     else:
         return access_token

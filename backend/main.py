@@ -5,7 +5,7 @@ from typing import Union
 
 #Rotas
 from modules.auth import authrouter
-from modules.candidato import vagarouter
+from modules.vagas import vagasrouter
 
 app = FastAPI(
     title="API do Projeto Emprega Social", 
@@ -27,7 +27,7 @@ def read_root():
     return "Olá"
 
 app.include_router(authrouter.router, prefix="/api/v1/auth")
-app.include_router(vagarouter.router, prefix="/api/v1/vaga")
+app.include_router(vagasrouter.router, prefix="/api/v1/vagas")
 
 # Inicializando o servidor
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
+from typing import Optional
 from pydantic import BaseModel
 
 class Vaga(BaseModel):
-    id: int
+    id: Optional[int]
     empresa: str
     titulo: str
     descricao: str
@@ -14,12 +15,13 @@ class Vaga(BaseModel):
     cep: str
     bairro: str
     pais: str
-    data_publicacao: str
-    data_expiracao: str
     tipo: str # CLT, PJ, Estágio
     modelo_contratacao: str # Presencial, Remoto, Híbrido
     nivel: str # Júnior, Pleno, Sênior, Especialista
     area: str
+    data_publicacao: str
+    data_expiracao: str
+    criado_por: str
 
 
     model_config = {

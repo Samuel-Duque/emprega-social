@@ -1,83 +1,53 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CadastroService } from '../cadastro.service';
 
 @Component({
   selector: 'app-cadastro-profissional',
   templateUrl: './cadastro-profissional.component.html',
   styleUrls: ['./cadastro-profissional.component.css']
 })
-export class CadastroProfissionalComponent implements AfterViewInit {
-  @ViewChild('password')
-  password!: ElementRef;
+export class CadastroProfissionalComponent {
+  currentStep$ = this.cadastroService.getCurrentStep();
+  cadastroForm: FormGroup;
 
-  @ViewChild('repeatPassword')
-  repeatPassword!: ElementRef;
+  constructor(private cadastroService: CadastroService, private fb: FormBuilder) {
+    this.cadastroForm = this.fb.group({
+      name: ['', Validators.required],
+      dataNascimento: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      repeatPassword: ['', Validators.required],
+      terms: [false, Validators.requiredTrue]
+    });
+  }
 
+  onComecar() {
+    this.cadastroService.nextStep();
+  }
 
-  ngAfterViewInit() {
-    // Verificação requerimentos da senha
-    this.password.nativeElement.addEventListener('input', (e: { target: { value: any; }; }) => {
-      var password = e.target.value;
+  get password() {
+    return this.cadastroForm.get('password');
+  }
 
-      if (password.length >= 6) {
-        document.querySelector('.length')?.classList.add('text-green-500');
-        document.querySelector('.length .icon')?.classList.add('text-green-500');
-        document.querySelector('.length')?.classList.remove('text-gray-500');
-        document.querySelector('.length .icon')?.classList.remove('text-gray-500');
-    } else {
-      document.querySelector('.length')?.classList.add('text-gray-500');
-      document.querySelector('.length .icon')?.classList.add('text-gray-500');
-      document.querySelector('.length')?.classList.remove('text-green-500');
-      document.querySelector('.length .icon')?.classList.remove('text-green-500');
-    }
+  get repeatPassword() {
+    return this.cadastroForm.get('repeatPassword');
+  }
 
-    // Verificar se a senha tem pelo menos um caractere minúsculo
-    if (/[A-Z]/.test(password)) {
-        document.querySelector('.lowercase')?.classList.add('text-green-500');
-        document.querySelector('.lowercase .icon')?.classList.add('text-green-500');
-        document.querySelector('.lowercase')?.classList.remove('text-gray-500');
-        document.querySelector('.lowercase .icon')?.classList.remove('text-gray-500');
-    } else {
-      document.querySelector('.lowercase')?.classList.add('text-gray-500');
-      document.querySelector('.lowercase .icon')?.classList.add('text-gray-500');
-      document.querySelector('.lowercase')?.classList.remove('text-green-500');
-      document.querySelector('.lowercase .icon')?.classList.remove('text-green-500');
-    }
+  checkPasswordMatch() {
+    return this.password?.value === this.repeatPassword?.value;
+  }
 
-    // Verificar se a senha tem pelo menos um caractere especial
-    if (/[!#?$&*@()%¨"']/.test(password)) {
-      document.querySelector('.special')?.classList.add('text-green-500');
-      document.querySelector('.special .icon')?.classList.add('text-green-500');
-      document.querySelector('.special')?.classList.remove('text-gray-500');
-      document.querySelector('.special .icon')?.classList.remove('text-gray-500');
-    } else {
-      document.querySelector('.special')?.classList.add('text-gray-500');
-      document.querySelector('.special .icon')?.classList.add('text-gray-500');
-      document.querySelector('.special')?.classList.remove('text-green-500');
-      document.querySelector('.special .icon')?.classList.remove('text-green-500');
-    }
-});
-  const checarSenhaMatch = () => {
-    const passwordError = document.getElementById('passwordError');
-    const passwordSuccess = document.getElementById('passwordSuccess');
+  hasMinLength() {
+    return this.password?.value.length >= 6;
+  }
 
-    if (this.password.nativeElement.value !== this.repeatPassword.nativeElement.value) {
-      // As senhas não correspondem
-      passwordError?.classList.remove('hidden');
-      passwordSuccess?.classList.add('hidden');
-      this.repeatPassword.nativeElement.classList.add('border-red-500');
-      this.repeatPassword.nativeElement.classList.remove('border-primary');
-      
-    } 
-    else {
-      // As senhas correspondem
-      passwordError?.classList.add('hidden');
-      passwordSuccess?.classList.remove('hidden');
-      this.repeatPassword.nativeElement.classList.add('border-primary');
-      this.repeatPassword.nativeElement.classList.remove('border-red-500');
-    }
-  };
+  hasUpperCase() {
+    return /[A-Z]/.test(this.password?.value);
+  }
 
-  this.password.nativeElement.addEventListener('input', checarSenhaMatch);
-  this.repeatPassword.nativeElement.addEventListener('input', checarSenhaMatch);
-}
+  hasSpecialChar() {
+    return /[!@#$%^&*(),.?":{}|<>]/.test(this.password?.value);
+  }
 }

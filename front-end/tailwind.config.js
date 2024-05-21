@@ -28,18 +28,15 @@ module.exports = {
         'cgray-dark': '#F5F5F5',
         'erro': '#FF2828'
       },
-      textColor: {
-        'primary': '#000000',
-      },
       animation: {
         fadeIn: 'fadeIn 1s ease-in-out',
-        fadeInDelay: 'fadeIn 1s ease-in-out 1s',
+        fadeInDelay: 'fadeIn 1.5s ease-in-out',
         bounce: 'bounce 2s infinite'
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
         },
         bounce: {
           '0%, 20%, 50%, 80%, 100%': {

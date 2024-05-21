@@ -22,6 +22,8 @@ class VagasService:
   async def criar_vaga(vaga: Vaga, token: str):
     supabase = await get_supabase_client()
 
-    user = supabase.auth.get_user(token)
+    # user = supabase.auth.get_user(token)
     
-    supabase.table("vagas").insert(vaga).execute()
+    supabase.table("vagas").insert(vaga.dict()).execute()
+
+    return { "OK": "OK" }

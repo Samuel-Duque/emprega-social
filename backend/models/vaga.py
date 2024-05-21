@@ -2,7 +2,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Vaga(BaseModel):
-    id: Optional[int]
+    id: Optional[int] = None
     empresa: str
     titulo: str
     descricao: str
@@ -22,30 +22,39 @@ class Vaga(BaseModel):
     data_publicacao: str
     data_expiracao: str
     criado_por: str
+    status: str # Aberta, Fechada, Em andamento
+    quantidade_vagas: int
+    exibe_salario: bool
+    exibe_quantidade_vagas: bool
+    
 
 
     model_config = {
         'json_schema_extra': {
             "example": {
-                "id": 1,
                 "empresa": "Empresa",
-                "titulo": "Desenvolvedor Fullstack",
-                "descricao": "Descrição da vaga",
-                "salario": 5000.00,
-                "estado": "SP",
-                "cidade": "São Paulo",
-                "endereco": "Rua das Flores",
-                "numero": "123",
-                "complemento": "Apto 123",
-                "cep": "12345-678",
-                "bairro": "Centro",
-                "pais": "Brasil",
-                "data_publicacao": "2021-10-01",
-                "data_expiracao": "2021-10-31",
+                "titulo": "Título",
+                "descricao": "Descrição",
+                "salario": 1000,
+                "estado": "Estado",
+                "cidade": "Cidade",
+                "endereco": "Endereço",
+                "numero": "Número",
+                "complemento": "Complemento",
+                "cep": "CEP",
+                "bairro": "Bairro",
+                "pais": "País",
                 "tipo": "CLT",
-                "modelo_contratacao": "Remoto",
-                "nivel": "Pleno",
-                "area": "Tecnologia"
+                "modelo_contratacao": "Presencial",
+                "nivel": "Júnior",
+                "area": "Área",
+                "data_publicacao": "2021-09-01",
+                "data_expiracao": "2021-09-30",
+                "criado_por": "Criado Por",
+                "status": "Aberta",
+                "quantidade_vagas": 1,
+                "exibe_salario": True,
+                "exibe_quantidade_vagas": True
             }
         }
     }

@@ -10,7 +10,7 @@ export class VagasComponent {
     {
       titulo: 'Desenvolvedor Front-end',
       empresa: 'Tech Solutions',
-      localizacao: 'São Paulo, SP',
+      localizacao: 'Igarassu, PE',
       descricao: 'Estamos buscando um desenvolvedor front-end com experiência em Angular e TypeScript.',
       salario: 'R$ 6.000 - R$ 8.000',
       data: 'Publicado há 3 dias',
@@ -22,7 +22,7 @@ export class VagasComponent {
     {
       titulo: 'Analista de Dados',
       empresa: 'Data Insights',
-      localizacao: 'Rio de Janeiro, RJ',
+      localizacao: 'Igarassu, PE',
       descricao: 'Analista de Dados com experiência em SQL e Python.',
       salario: 'R$ 5.000 - R$ 7.000',
       data: 'Publicado há 5 dias',
@@ -34,7 +34,7 @@ export class VagasComponent {
     {
       titulo: 'Designer UX/UI',
       empresa: 'Creative Agency',
-      localizacao: 'Belo Horizonte, MG',
+      localizacao: 'Goiana, PE',
       descricao: 'Procuramos um designer UX/UI para criar experiências de usuário incríveis.',
       salario: 'R$ 4.500 - R$ 6.500',
       data: 'Publicado há 7 dias',
@@ -46,7 +46,7 @@ export class VagasComponent {
     {
       titulo: 'Tech Lead',
       empresa: 'Creative Agency',
-      localizacao: 'Belo Horizonte, MG',
+      localizacao: 'Goiana, PE',
       descricao: 'Procuramos um líder técnico para liderar nossa equipe de desenvolvimento.',
       salario: 'R$ 8.000 - R$ 10.000',
       data: 'Publicado há 7 dias',

@@ -7,12 +7,12 @@ from models.vaga import Vaga
 
 router = APIRouter(tags=["Candidato"])
 
-# Perfil
-@router.get("/perfil")
-async def obter_perfil(token = Depends(validate_jwt)):
-    supabase = await get_supabase_client()
+# # Perfil
+# @router.get("/perfil")
+# async def obter_perfil(token = Depends(validate_jwt)):
+#     supabase = await get_supabase_client()
 
-    user = supabase.auth.get_user(token)
+#     user = supabase.auth.get_user(token)
 
-    response = user
-    return response
+#     response = user
+#     return response

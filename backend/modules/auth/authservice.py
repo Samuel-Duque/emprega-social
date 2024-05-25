@@ -1,4 +1,5 @@
-from fastapi import Depends, HTTPException, status
+import json
+from fastapi import Depends, HTTPException, Response, status
 import supabase
 from typing_extensions import Annotated
 from supabase import Client
@@ -10,16 +11,14 @@ from modules.auth.models.register import Register
 class AuthService:
 
   @staticmethod
-  async def login(request: Register) -> dict:
+  async def login(request: Register):
     supabase = await get_supabase_client()
 
     try:
       data = supabase.auth.sign_in_with_password({"email": request.email, "password": request.password})
-      return {"access_token": data.session.access_token}
+      return {"access_token": data.session.access_token, "role": "A"}
     except Exception as e:
-      raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail=str(e))
+      return Response(status_code=status.HTTP_200_OK, content=json.dumps({"error_message": "Endereço de email ou senha inválidos"}))
 
   @staticmethod
   async def register(request: Register):
@@ -27,8 +26,6 @@ class AuthService:
 
     try:
       data = supabase.auth.sign_up({"email": request.email, "password": request.password})
-      return {"access_token": data}
+      return {"access_token": data.session.access_token, "role": "A"}
     except Exception as e:
-      raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail=str(e))
+      Response(status_code=status.HTTP_200_OK, content=json.dumps({"error_message": "Ocorreu um erro ao tentar se registrar: " + str(e)}))

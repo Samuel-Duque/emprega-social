@@ -20,10 +20,9 @@ class VagasService:
   
   @staticmethod
   async def criar_vaga(vaga: Vaga, token: str):
-    supabase = await get_supabase_client()
-
-    # user = supabase.auth.get_user(token)
     
-    supabase.table("vagas").insert(vaga.dict()).execute()
+    supabase = await get_supabase_client()
+    # user = supabase.auth.get_user(token)
+    response = supabase.table("vagas").insert(vaga.model_dump()).execute()
 
-    return { "OK": "OK" }
+    return {"message": "Vaga criada com sucesso!", "data": response.data}

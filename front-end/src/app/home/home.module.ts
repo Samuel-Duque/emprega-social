@@ -4,8 +4,9 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CadastroProfissionalComponent } from './auth/cadastro-profissional/cadastro-profissional.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VagasComponent } from './pages/vagas/vagas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { VagasComponent } from './pages/vagas/vagas.component';
   imports: [
     HomeRoutingModule,
     ReactiveFormsModule,
-    CommonModule,
+    FormsModule,
+    CommonModule
   ]
 })
 export class HomeModule { }

@@ -22,12 +22,25 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'cadastro-profissional',
+        component: CadastroProfissionalComponent,
+      },
+    ],
+  },
+  {
     path: 'login',
-    component: LoginComponent,
+    redirectTo: 'auth/login',
   },
   {
     path: 'cadastro-profissional',
-    component: CadastroProfissionalComponent,
+    redirectTo: 'auth/cadastro-profissional',
   },
 ];
 

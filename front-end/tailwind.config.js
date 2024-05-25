@@ -12,7 +12,8 @@ module.exports = {
         'medium': ['Signika-Medium']
       },
       ringColor: {
-        'primary': '#e2ffe2',
+        'primary': '#CCE8CC',
+        'secondary': '#99ABD1',
       },
       textColor: {
         'primary': '#008A00',

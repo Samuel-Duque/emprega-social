@@ -12,12 +12,56 @@
   </nav>
   <!-- Fim do Header -->
 
+
+<!-- Main modal -->
+<div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Recuperar senha
+                </h3>
+                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5">
+                <form class="space-y-4" action="#">
+                  <div class="flex items-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                      <span class="font-medium"></span> Se o dado informado existir em nosso banco de dados, enviaremos um link com as instruções de redefinição de senha para o e-mail cadastrado!
+                    </div>
+                  </div>
+
+                  <!-- <h1 class=" font-regular text-gray-900 dark:text-white">Se o dado informado existir em nosso banco de dados, enviaremos um link com as instruções de redefinição de senha para o e-mail cadastrado!</h1> -->
+                    <div>
+                        <label for="email-recuperar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Informe o endereço de e-mail cadastrado</label>
+                        <input type="email" name="email-recuperar" id="email-recuperar" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Endereço de e-mail" required>
+                    </div>
+                    <button type="submit" class="text-white flex items-center justify-center bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 w-full py-2.5 text-center">Recuperar senha</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
   <div class="w-full flex items-center justify-center flex-1">
     <div class="w-full max-w-md p-4 space-y-4">
       <form class="max-w-sm mx-auto" [formGroup]="loginForm">
         <div class="mb-5">
           <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
-          <input type="email" formControlName="email" id="email"
+          <input type="email" autocomplete="email" formControlName="email" id="email"
             [ngClass]="{'border-red-500 focus:ring-red-300 focus:border-red-500 bg-red-50': isLoginError}"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Seu endereço de e-mail" required />
@@ -25,7 +69,7 @@
         <div class="mb-3 relative">
           <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
 
-          <input type="password" autocomplete formControlName="password" id="password"
+          <input type="password" autocomplete="current-password" formControlName="password" id="password"
             [ngClass]="{'border-red-500 focus:ring-red-300 focus:border-red-500 bg-red-50': isLoginError}"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Sua senha" required />
@@ -43,7 +87,7 @@
               required />
           </div>
           <label for="remember" class="ms-2  font-medium text-gray-900 dark:text-gray-300">Lembrar de mim</label>
-          <button type="button" class="text-secondary hover:underline ml-auto font-regular">Esqueci minha senha</button>
+          <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-secondary hover:underline ml-auto font-regular">Esqueci minha senha</button>
         </div>
         <div class="flex items-center">
 

@@ -6,9 +6,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ErrorResponse } from '@app/shared/interfaces/error';
 import {
   Login,
-  LoginErrorResponse,
   LoginResponse,
 } from '@shared/interfaces/login';
 import { AuthService } from '@shared/services/auth.service';
@@ -31,8 +31,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private route: Router,
     private formBuilder: FormBuilder,
-    private auth: AuthService,
-    private toast: ToastrService
+    private authService: AuthService,
+    private toast: ToastrService,
+    // private tokenService: TokenService
   ) {}
 
   ngOnInit() {
@@ -55,21 +56,21 @@ export class LoginComponent implements OnInit, OnDestroy {
         password: this.loginForm.get('password')?.value,
       };
 
-      this.auth
+      this.authService
         .signIn(login)
         .pipe(first(), takeUntil(this._unsubscribeAll))
         .subscribe({
-          next: (response: LoginResponse | LoginErrorResponse) => {
+          next: (response: LoginResponse | ErrorResponse) => {
             this.isLoading = false;
-            console.log(response);
-            // this.route.navigate(['/home']);
+            // console.log(response);
 
             // verifica se a resposta possui error_message ou access_token
             if ('error_message' in response) {
               this.isLoginError = true;
             } else {
-              this.toast.success('Login efetuado com sucesso', 'Sucesso');
-              // this.route.navigate(['/home']);
+              // this.tokenService.setTokens(response.access_token, response.refresh_token);
+              // this.toast.success('Login efetuado com sucesso', 'Sucesso');
+              this.route.navigate(['/auth/verify']);
             }
           },
           error: (error) => {

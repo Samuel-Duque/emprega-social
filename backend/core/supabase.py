@@ -1,6 +1,7 @@
 import os
 
 from fastapi import Cookie, HTTPException, Request, Response, status
+import jwt
 from supabase import create_client, Client
 from supabase.client import ClientOptions
 
@@ -14,13 +15,13 @@ async def get_supabase_client():
         settings.supabase_key,
         options=ClientOptions(
             persist_session=False,
-            auto_refresh_token=False,
+            auto_refresh_token=True,
         ),
     )
 
     return supabase
 
-async def supabase_session(request: Request, mycookie: str = Cookie(None)):
+async def supabase_session(request: Request):
     supabase = await get_supabase_client()
 
     access_token = request.cookies.get('access_token')
@@ -34,3 +35,12 @@ async def supabase_session(request: Request, mycookie: str = Cookie(None)):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token de sessão inválido")
     else:
         return supabase
+    
+def supabase_jwt_decode(access_token: str):
+    decoded = jwt.decode(
+            access_token,
+            settings.supabase_jwt_secret,
+            algorithms=["HS256"],
+            options={"verify_aud": False, "verify_signature": True},
+    )
+    return decoded

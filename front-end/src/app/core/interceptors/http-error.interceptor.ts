@@ -38,10 +38,47 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error) => {
-        // console.error(error);
-        this.toast.error('Ocorreu um erro inesperado. Tente novamente mais tarde.', 'Erro')
-        return throwError(error.message);
+
+        let handled: boolean = false;
+        console.error(error);
+        if (error instanceof HttpErrorResponse) {
+          if (error.error instanceof ErrorEvent) {
+            console.error("Error Event");
+          } else {
+            console.log(`error status : ${error.status} ${error.statusText}`);
+            switch (error.status) {
+              case 200:
+                break;
+              case 201:
+                break;
+              case 401:      //login
+                // this.router.navigateByUrl("/login");
+                handled = true;
+                break;
+              case 403:     //forbidden
+                this.router.navigateByUrl("/login");
+                handled = true;
+                break;
+              default:
+                this.toast.error("Ocorreu um erro inesperado, tente novamente mais tarde", "Erro");
+                handled = true;
+                break;
+            }
+          }
+        }
+        else {
+          // console.error("Other Errors");
+        }
+
+        if (handled) {
+          // console.log('return back ');
+          return of(error);
+        } else {
+          // console.log('throw error back to to the subscriber');
+          return throwError(error);
+        }
+
       })
-    )
+    );
   }
 }

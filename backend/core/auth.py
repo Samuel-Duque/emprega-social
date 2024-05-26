@@ -27,3 +27,5 @@ def validate_jwt(authorization: Annotated[str, Header()]) -> str:
         raise HTTPException(status_code=400, detail="Invalid Authorization")
     else:
         return access_token
+    
+    

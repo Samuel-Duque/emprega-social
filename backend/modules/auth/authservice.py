@@ -72,7 +72,7 @@ class AuthService:
       # Determina a regra do usuário
       match(response.data[0]['id_grupo']):
         case 1: # Prefeitura
-          return {"message": "Informações válidas!", "redirectTo": "/prefeitura/dashboard"}
+          return {"message": "Informações válidas!", "redirectTo": "/prefeitura"}
         case 2: # Empresa
           return {"message": "Informações válidas!", "redirectTo": "/empresa/dashboard"}
         case 3: # Candidato

@@ -19,7 +19,7 @@ async def login(request: Login):
 async def register(request: Register):
     return await AuthService.register(request)
 
-@router.post("/logout")
+@router.get("/logout")
 async def logout(supabase=Depends(supabase_session)):
     return await AuthService.logout(supabase)
 

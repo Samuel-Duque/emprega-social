@@ -14,7 +14,11 @@ export class AuthService {
     return this.http.post(environment.apiUrl + '/auth/login', data)
   }
 
-  verifySession() {
+  verifySession(): Observable<any> {
     return this.http.get(environment.apiUrl + '/auth/verify')
+  }
+
+  logout(): Observable<any> {
+    return this.http.get(environment.apiUrl + '/auth/logout')
   }
 }

@@ -8,6 +8,11 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'prefeitura',
+    loadChildren: () =>
+      import('./prefeitura/prefeitura.module').then((m) => m.PrefeituraModule),
+  },
+  {
     path: '**',
     component: Erro404Component,
   },

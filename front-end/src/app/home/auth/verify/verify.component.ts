@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ErrorResponse } from '@app/shared/interfaces/error';
+import { VerifySession } from '@app/shared/interfaces/verifySession';
 import { AuthService } from '@app/shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, first, takeUntil } from 'rxjs';
@@ -22,17 +23,17 @@ export class VerifyComponent implements OnInit, OnDestroy {
   private verifyInfos() {
 
       this.authService.verifySession().pipe(first(), takeUntil(this._unsubscribeAll)).subscribe({
-        next: (response: any | ErrorResponse) => {
-          console.log(response);
+        next: (response: VerifySession | ErrorResponse) => {
 
-          // if ('error_message' in response) {
-          //   this.toast.error(response.error_message, 'Erro')
-          // } else {
-          //   this.toast.success("Sessão verificada", "sucesso")
-          // }
+          if ('error_message' in response) {
+            this.toast.error(response.error_message, 'Erro')
+          } else {
+            const redirect = response.redirectTo
+            this.route.navigate([redirect]);
+          }
         },
         error: (error) => {
-          this.route.navigate(['/login']);
+          this.route.navigate(['/auth/login']);
           // this.toast.error("Ocorreu um erro ao realizar a verificação das informações", "Erro");
         },
       })

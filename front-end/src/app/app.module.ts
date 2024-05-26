@@ -10,6 +10,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptorService } from './core/interceptors/http-error.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TokenHttpInterceptor } from './core/interceptors/token-http.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     provideClientHydration(),
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptorService, multi: true  }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptorService, multi: true  },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenHttpInterceptor, multi: true  }
   ],
   bootstrap: [AppComponent]
 })

@@ -5,9 +5,7 @@ export interface Login {
 
 export interface LoginResponse {
   access_token: string;
+  refresh_token: string;
   role: string;
 }
 
-export interface LoginErrorResponse {
-  error_message: string;
-}

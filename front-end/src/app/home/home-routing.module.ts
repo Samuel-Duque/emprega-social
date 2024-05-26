@@ -5,6 +5,7 @@ import { VagasComponent } from './pages/vagas/vagas.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CadastroProfissionalComponent } from './auth/cadastro-profissional/cadastro-profissional.component';
+import { VerifyComponent } from './auth/verify/verify.component';
 
 const routes: Routes = [
   {
@@ -32,11 +33,15 @@ const routes: Routes = [
         path: 'cadastro-profissional',
         component: CadastroProfissionalComponent,
       },
+      {
+        path: 'verify',
+        component: VerifyComponent,
+      }
     ],
   },
   {
     path: 'login',
-    redirectTo: 'auth/login',
+    redirectTo: 'auth/verify',
   },
   {
     path: 'cadastro-profissional',

@@ -7,6 +7,7 @@ import { CadastroProfissionalComponent } from './auth/cadastro-profissional/cada
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VagasComponent } from './pages/vagas/vagas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VerifyComponent } from './auth/verify/verify.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     CadastroProfissionalComponent,
     VagasComponent,
+    VerifyComponent
   ],
   imports: [
     HomeRoutingModule,

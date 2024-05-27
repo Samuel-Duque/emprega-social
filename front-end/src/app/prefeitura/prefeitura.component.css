@@ -5,6 +5,6 @@ a.active {
 }
 
 @media (max-width: 765px) {
-  a.active {
-  }
+  /* a.active {
+  } */
 }

@@ -33,7 +33,7 @@ O Emprega Social visa solucionar esses problemas através da criação de uma pl
 
 * **Front-end:** Angular
 * **Biblioteca Front-end:** FlowBite
-* **Back-end:** Python (framework Flask)
+* **Back-end:** Python (framework FastAPI)
 * **Banco de dados:** PostgreSQL (Supabase)
 
 ## Fluxo de Usuário

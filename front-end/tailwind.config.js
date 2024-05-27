@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        '1/4vh': '25vh',
+        '1/2vh': '50vh',
+        '3/4vh': '75vh',
+        'fullvh': '100vh',
+      },
       fontFamily: {
         'regular': ['Signika-Regular'],
         'semibold': ['Signika-SemiBold'],

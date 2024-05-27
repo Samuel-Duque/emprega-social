@@ -3,6 +3,7 @@ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import {
   initFlowbite,
 } from 'flowbite';
+import { FlowbiteService } from './shared/services/flowbite.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,9 @@ import {
 })
 export class AppComponent implements OnInit {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(private flowService: FlowbiteService) {}
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      initFlowbite();
-    }
+    this.flowService.init();
   }
 }

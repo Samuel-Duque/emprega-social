@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '@app/shared/services/auth.service';
+import { FlowbiteService } from '@app/shared/services/flowbite.service';
 import { initFlowbite } from 'flowbite';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs';
@@ -12,7 +13,7 @@ import { first } from 'rxjs';
 })
 export class PrefeituraComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService, private toast: ToastrService) { }
+  constructor(private flowService: FlowbiteService, private router: Router, private authService: AuthService, private toast: ToastrService) { }
 
   ngOnInit() {
     this.flowbite();
@@ -21,9 +22,7 @@ export class PrefeituraComponent implements OnInit {
   private flowbite() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log('initFlowbite');
-
-        initFlowbite();
+          this.flowService.init();
       }
     });
   }

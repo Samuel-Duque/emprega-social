@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VagasComponent } from './pages/vagas/vagas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VerifyComponent } from './auth/verify/verify.component';
+import { QualificacoesComponent } from './pages/qualificacoes/qualificacoes.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { VerifyComponent } from './auth/verify/verify.component';
     LoginComponent,
     CadastroProfissionalComponent,
     VagasComponent,
-    VerifyComponent
+    VerifyComponent,
+    QualificacoesComponent
   ],
   imports: [
     HomeRoutingModule,

@@ -33,6 +33,10 @@
   src: url(./assets/fonts/Signika-Bold.ttf) format('truetype');
 }
 
+* {
+  font-family: Signika-Regular
+}
+
 /*------------------------------------------/*
 #RESET DE ESTILOS
 /*------------------------------------------*/

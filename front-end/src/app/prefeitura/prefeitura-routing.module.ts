@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PrefeituraComponent } from './prefeitura.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { VagasComponent } from './pages/vagas/vagas.component';
+import { CriarVagaComponent } from './pages/vagas/criar-vaga/criar-vaga.component';
+import { HomeComponent } from '@app/home/home.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,10 @@ const routes: Routes = [
         component: VagasComponent,
       },
     ],
+  },
+  {
+    path: 'vagas/criar',
+    component: CriarVagaComponent,
   },
 ];
 

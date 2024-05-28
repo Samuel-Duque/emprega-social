@@ -5,6 +5,7 @@ import { PrefeituraRoutingModule } from './prefeitura-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { VagasComponent } from './pages/vagas/vagas.component';
+import { CriarVagaComponent } from './pages/vagas/criar-vaga/criar-vaga.component';
 
 
 
@@ -12,7 +13,8 @@ import { VagasComponent } from './pages/vagas/vagas.component';
   declarations: [
     PrefeituraComponent,
     InicioComponent,
-    VagasComponent
+    VagasComponent,
+    CriarVagaComponent
   ],
   imports: [
     CommonModule,

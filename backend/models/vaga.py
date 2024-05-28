@@ -18,7 +18,7 @@ class Vaga(BaseModel):
     tipo: str # CLT, PJ, Estágio
     modelo_contratacao: str # Presencial, Remoto, Híbrido
     nivel: str # Júnior, Pleno, Sênior, Especialista
-    area: str
+    area: str # Desenvolvimento, Design, Marketing, Vendas, Administrativo
     data_publicacao: str
     data_expiracao: str
     criado_por: str

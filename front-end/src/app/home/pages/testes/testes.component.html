@@ -1,0 +1,39 @@
+<div class="container mx-auto pt-24 p-4 sm:p-8 md:p-20 xl:px-40">
+  <!-- Barra de Pesquisa e Filtros -->
+  <div class="mb-8">
+    <div class="bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+      <div class="relative flex-1">
+        <label for="categoria" class="block text-gray-700 mb-2">Categoria</label>
+        <select id="categoria" [(ngModel)]="filtroSelecionado.categoria" class="border border-gray-300 rounded-lg py-2 px-4 w-full">
+          <option *ngFor="let categoria of filtros.categorias" [value]="categoria">{{ categoria }}</option>
+        </select>
+      </div>
+      <div class="relative flex-1">
+        <label for="nivel" class="block text-gray-700 mb-2">Nível</label>
+        <select id="nivel" [(ngModel)]="filtroSelecionado.nivel" class="border border-gray-300 rounded-lg py-2 px-4 w-full">
+          <option *ngFor="let nivel of filtros.niveis" [value]="nivel">{{ nivel }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lista de Testes -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ">
+    <div *ngFor="let teste of filtrarTestes()" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+      
+      <h2 class="text-2xl font-semibold text-black mb-2">{{ teste.nome }}</h2>
+      <p class="text-gray-700 mb-4">{{ teste.descricao }}</p>
+      <p class="text-gray-500 mb-2">Categoria: {{ teste.categoria }}</p>
+      <p class="text-gray-500 mb-2">Nível: {{ teste.nivel }}</p>
+      <p class="text-gray-500 mb-4">Status: <span [class]="{'text-green-600': teste.status === 'Concluído', 'text-red-600': teste.status !== 'Concluído'}">{{ teste.status }}</span></p>
+      <a [href]="teste.link" target="_blank" class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300 inline-block">Acessar Teste</a>
+    </div>
+  </div>
+
+  <!-- Seção de Qualificações -->
+  <div class="text-center mt-12 bg-gray-50 p-12 rounded">
+    <h2 class="text-3xl font-bold text-black mb-4">Prepare-se para os Testes</h2>
+    <p class="text-lg text-gray-800 mb-8">Visite a nossa seção de qualificações para se preparar melhor e aumentar suas chances de sucesso nos testes.</p>
+    <a routerLink="/qualificacoes" class="bg-primary text-white py-3 px-6 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300 inline-block">Ver Qualificações</a>
+  </div>
+</div>

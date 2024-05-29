@@ -25,175 +25,177 @@
   </nav>
 
   <div class="w-full md:flex flex-1 mt-20 px-3 py-3 lg:px-5 lg:pl-3">
-    <div class="p-6 mr-10 --bg-gray-200">
-      <button
-        type="submit"
-        (click)="voltar()"
-        class="sticky p-2.5 right-3 mb-8 text-sm flex items-center font-medium bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 rounded-md px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-      >
-        <svg
-          class="w-5 h-5 text-black mr-3"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 14 10"
+    <div class="p-6 mr-10 w-full max-w-xs">
+      <div class="md:fixed">
+        <button
+          type="submit"
+          (click)="voltar()"
+          class="sticky p-2.5 right-3 mb-8 text-sm flex items-center font-medium bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 rounded-md px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
         >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M13 5H1m0 0 4 4M1 5l4-4"
-          ></path>
-        </svg>
-        Voltar para gestão de vagas
-      </button>
-
-      <ol class="relative text-gray-500 border-s-[3px] border-gray-200">
-        <li class="cursor-pointer mb-10 ms-6">
-          <span
-            class="absolute flex border-[3px] border-primary items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
+          <svg
+            class="w-5 h-5 text-black mr-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
           >
-            <svg
-              class="w-3.5 h-3.5 text-green-500 dark:text-green-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 16 12"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 5.917 5.724 10.5 15 1.5"
-              />
-            </svg>
-          </span>
-          <h3 class="font-medium leading-tight">Detalhes da vaga</h3>
-          <p class="text-sm">Aqui você pode adicionar detalhes da vaga</p>
-        </li>
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 5H1m0 0 4 4M1 5l4-4"
+            ></path>
+          </svg>
+          Voltar para gestão de vagas
+        </button>
 
-        <li class="cursor-pointer mb-10 ms-6">
-          <span
-            class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-gray-500"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 16 12"
+        <ol class="relative text-gray-500 border-s-[3px] border-gray-200">
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-primary items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 5.917 5.724 10.5 15 1.5"
-              />
-            </svg>
-          </span>
-          <h3 class="font-medium leading-tight">Descrição da vaga</h3>
-          <p class="text-sm">Descreva a vaga e os requisitos</p>
-        </li>
+              <svg
+                class="w-3.5 h-3.5 text-green-500 dark:text-green-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 16 12"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5.917 5.724 10.5 15 1.5"
+                />
+              </svg>
+            </span>
+            <h3 class="font-medium leading-tight">Detalhes da vaga</h3>
+            <p class="text-sm">Aqui você pode adicionar detalhes da vaga</p>
+          </li>
 
-        <li class="cursor-pointer mb-10 ms-6">
-          <span
-            class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-gray-500"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 16 12"
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 5.917 5.724 10.5 15 1.5"
-              />
-            </svg>
-          </span>
-          <h3 class="font-medium">Local de trabalho e dados internos</h3>
-          <p class="text-sm">Informe o local de trabalho e dados internos</p>
-        </li>
+              <svg
+                class="w-3.5 h-3.5 text-gray-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 16 12"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5.917 5.724 10.5 15 1.5"
+                />
+              </svg>
+            </span>
+            <h3 class="font-medium leading-tight">Descrição da vaga</h3>
+            <p class="text-sm">Descreva a vaga e os requisitos</p>
+          </li>
 
-        <li class="cursor-pointer mb-10 ms-6">
-          <span
-            class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
-          >
-            <svg
-              class="w-4 h-4 text-gray-500"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
             >
-              <path
-                d="M7.05025 4.05025C8.36301 2.7375 10.1435 2 12 2C13.8565 2 15.637 2.7375 16.9497 4.05025C18.2625 5.36301 19 7.14349 19 9C19 11.4073 17.8026 12.8736 16.8141 14.0841L16.7747 14.1324C15.7705 15.3625 15 16.3394 15 18C15 18.5523 14.5523 19 14 19H10C9.44772 19 9 18.5523 9 18C9 16.3878 8.2294 15.3875 7.21913 14.1247L7.17453 14.069C6.19287 12.8424 5 11.352 5 9C5 7.14348 5.7375 5.36301 7.05025 4.05025ZM9 21C9 20.4477 9.44772 20 10 20H14C14.5523 20 15 20.4477 15 21C15 21.5523 14.5523 22 14 22H10C9.44772 22 9 21.5523 9 21ZM10.5858 7.58579C10.9609 7.21071 11.4696 7 12 7C12.5523 7 13 6.55228 13 6C13 5.44772 12.5523 5 12 5C10.9391 5 9.92172 5.42143 9.17157 6.17157C8.42143 6.92172 8 7.93913 8 9C8 9.55228 8.44772 10 9 10C9.55228 10 10 9.55228 10 9C10 8.46957 10.2107 7.96086 10.5858 7.58579Z"
-                fill="#6B7280"
-              />
-            </svg>
-          </span>
-          <h3 class="font-medium">Como avaliar os candidatos</h3>
-        </li>
+              <svg
+                class="w-3.5 h-3.5 text-gray-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 16 12"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5.917 5.724 10.5 15 1.5"
+                />
+              </svg>
+            </span>
+            <h3 class="font-medium">Local de trabalho e dados internos</h3>
+            <p class="text-sm">Informe o local de trabalho e dados internos</p>
+          </li>
 
-        <li class="cursor-pointer mb-10 ms-6">
-          <span
-            class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-gray-500"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 16 12"
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 5.917 5.724 10.5 15 1.5"
-              />
-            </svg>
-          </span>
-          <h3 class="font-medium">Definição de etapas e critérios</h3>
-          <p class="text-sm">Informe as etapas e critérios de avaliação</p>
-        </li>
+              <svg
+                class="w-4 h-4 text-gray-500"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.05025 4.05025C8.36301 2.7375 10.1435 2 12 2C13.8565 2 15.637 2.7375 16.9497 4.05025C18.2625 5.36301 19 7.14349 19 9C19 11.4073 17.8026 12.8736 16.8141 14.0841L16.7747 14.1324C15.7705 15.3625 15 16.3394 15 18C15 18.5523 14.5523 19 14 19H10C9.44772 19 9 18.5523 9 18C9 16.3878 8.2294 15.3875 7.21913 14.1247L7.17453 14.069C6.19287 12.8424 5 11.352 5 9C5 7.14348 5.7375 5.36301 7.05025 4.05025ZM9 21C9 20.4477 9.44772 20 10 20H14C14.5523 20 15 20.4477 15 21C15 21.5523 14.5523 22 14 22H10C9.44772 22 9 21.5523 9 21ZM10.5858 7.58579C10.9609 7.21071 11.4696 7 12 7C12.5523 7 13 6.55228 13 6C13 5.44772 12.5523 5 12 5C10.9391 5 9.92172 5.42143 9.17157 6.17157C8.42143 6.92172 8 7.93913 8 9C8 9.55228 8.44772 10 9 10C9.55228 10 10 9.55228 10 9C10 8.46957 10.2107 7.96086 10.5858 7.58579Z"
+                  fill="#6B7280"
+                />
+              </svg>
+            </span>
+            <h3 class="font-medium">Como avaliar os candidatos</h3>
+          </li>
 
-        <!-- <li class="mb-10 ms-6">
-          <span
-            class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
-            <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-              <path
-                d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z" />
-            </svg>
-          </span>
-          <h3 class="font-medium leading-tight">Review</h3>
-          <p class="text-sm">Step details here</p>
-        </li>
-        <li class="ms-6">
-          <span
-            class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
-            <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-              <path
-                d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z" />
-            </svg>
-          </span>
-          <h3 class="font-medium leading-tight">Confirmation</h3>
-          <p class="text-sm">Step details here</p>
-        </li> -->
-      </ol>
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
+            >
+              <svg
+                class="w-3.5 h-3.5 text-gray-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 16 12"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5.917 5.724 10.5 15 1.5"
+                />
+              </svg>
+            </span>
+            <h3 class="font-medium">Definição de etapas e critérios</h3>
+            <p class="text-sm">Informe as etapas e critérios de avaliação</p>
+          </li>
+
+          <!-- <li class="mb-10 ms-6">
+            <span
+              class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+              <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                <path
+                  d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z" />
+              </svg>
+            </span>
+            <h3 class="font-medium leading-tight">Review</h3>
+            <p class="text-sm">Step details here</p>
+          </li>
+          <li class="ms-6">
+            <span
+              class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+              <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                <path
+                  d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z" />
+              </svg>
+            </span>
+            <h3 class="font-medium leading-tight">Confirmation</h3>
+            <p class="text-sm">Step details here</p>
+          </li> -->
+        </ol>
+      </div>
     </div>
 
     <div
-      class="px-5 py-5 flex flex-col justify-between flex-1 shadow-md sm:rounded-lg"
+      class="px-5 h-50 py-5 flex flex-col justify-between flex-1 shadow-md sm:rounded-lg"
     >
       <div>
         @if (step == 1) {

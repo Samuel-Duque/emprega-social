@@ -6,6 +6,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CadastroProfissionalComponent } from './auth/cadastro-profissional/cadastro-profissional.component';
 import { VerifyComponent } from './auth/verify/verify.component';
+import { QualificacoesComponent } from './pages/qualificacoes/qualificacoes.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'vagas',
         component: VagasComponent,
+      },
+      {
+        path: 'qualificacoes',
+        component: QualificacoesComponent,
       },
     ],
   },

@@ -1,0 +1,57 @@
+<div class="container mx-auto pt-24 p-4 sm:p-8 md:p-20 xl:px-40">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-black mb-4">Qualifique-se com as melhores aulas</h1>
+      <p class="text-lg text-gray-800 mb-8">Busque e acesse aulas de diversas disciplinas para aprimorar seus conhecimentos.</p>
+    <div class="bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mb-8">
+        <div class="relative flex-1 flex">
+            <img src="/assets/icons/search.svg" alt="" class="absolute left-3 top-1/2 -translate-y-1/2">
+            <input type="text" placeholder="Buscar aulas..." class="border border-gray-300 rounded-lg py-2 px-4 w-full pl-10">
+        </div>
+        <button class="bg-black text-white py-2 px-6 rounded-lg shadow hover:bg-gray-800 transition-colors duration-300">Buscar</button>
+    </div>
+  
+      <!-- Filtros -->
+      <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12">
+        <div>
+          <label for="duracao" class="block text-gray-700 mb-2">Duração</label>
+          <select id="duracao" [(ngModel)]="filtroSelecionado.duracao" class="border border-gray-300 rounded-lg py-2 px-4 w-full">
+            <option *ngFor="let duracao of filtros.duracao" [value]="duracao">{{ duracao }}</option>
+          </select>
+        </div>
+        <div>
+          <label for="dificuldade" class="block text-gray-700 mb-2">Dificuldade</label>
+          <select id="dificuldade" [(ngModel)]="filtroSelecionado.dificuldade" class="border border-gray-300 rounded-lg py-2 px-4 w-full">
+            <option *ngFor="let dificuldade of filtros.dificuldade" [value]="dificuldade">{{ dificuldade }}</option>
+          </select>
+        </div>
+        <div>
+          <label for="tipo" class="block text-gray-700 mb-2">Tipo de Aula</label>
+          <select id="tipo" [(ngModel)]="filtroSelecionado.tipo" class="border border-gray-300 rounded-lg py-2 px-4 w-full">
+            <option *ngFor="let tipo of filtros.tipo" [value]="tipo">{{ tipo }}</option>
+          </select>
+        </div>
+        <div>
+          <label for="categoria" class="block text-gray-700 mb-2">Categoria</label>
+          <select id="categoria" [(ngModel)]="filtroSelecionado.categoria" class="border border-gray-300 rounded-lg py-2 px-4 w-full">
+            <option *ngFor="let categoria of filtros.categoria" [value]="categoria">{{ categoria }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Aulas Populares -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let aula of filtrarAulas()" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+        <img [src]="aula.imagem" alt="{{ aula.titulo }}" class="w-full h-40 object-cover rounded-t-lg mb-4">
+        <h2 class="text-2xl font-semibold text-black mb-2">{{ aula.titulo }}</h2>
+        <p class="text-gray-700 mb-2">{{ aula.descricao }}</p>
+        <p class="text-gray-500 mb-2">Duração: {{ aula.duracao }}</p>
+        <p class="text-gray-500 mb-2">Dificuldade: {{ aula.dificuldade }}</p>
+        <p class="text-gray-500 mb-2">Tipo: {{ aula.tipo }}</p>
+        <p class="text-gray-500 mb-4">Categoria: {{ aula.categoria }}</p>
+        <a [href]="aula.link" target="_blank" class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300 inline-block">Acessar Aulas</a>
+      </div>
+    </div>
+  </div>
+  

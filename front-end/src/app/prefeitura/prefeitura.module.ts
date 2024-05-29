@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { VagasComponent } from './pages/vagas/vagas.component';
 import { CriarVagaComponent } from './pages/vagas/criar-vaga/criar-vaga.component';
+import { QuillModule } from 'ngx-quill';
+import { SharedModule } from '@app/shared/shared.module';
 
 
 
@@ -21,7 +23,8 @@ import { CriarVagaComponent } from './pages/vagas/criar-vaga/criar-vaga.componen
     PrefeituraRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class PrefeituraModule { }

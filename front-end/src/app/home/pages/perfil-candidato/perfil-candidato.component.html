@@ -2,7 +2,7 @@
     <!-- Seção de Boas-vindas -->
     <div class="bg-white rounded-lg shadow p-6 mb-8 flex items-center justify-between">
       <div class="flex items-center">
-        <img [src]="usuario.foto" alt="Foto de {{ usuario.nome }}" class="w-20 h-20 rounded-full mr-6">
+        <img [src]="usuario.foto" alt="Foto de {{ usuario.nome }}" class="w-20 h-20 object-cover object-center rounded-full mr-6">
         <div>
           <h1 class="text-3xl font-bold text-black">Bem-vindo(a), {{ usuario.nome }}</h1>
           <p class="text-gray-600">Porcentagem das informações do seu perfil:</p>
@@ -40,7 +40,7 @@
           <img [src]="habilidade.icone" alt="{{ habilidade.nome }}" class="w-10 h-10 mr-4">
           <div>
             <h3 class="text-lg font-semibold text-black">{{ habilidade.nome }}</h3>
-            <p class="text-gray-600">{{ habilidade.nivel }}</p>
+            <p class="text-gray-600">Nivel {{ habilidade.nivel }}</p>
           </div>
         </div>
       </div>

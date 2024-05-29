@@ -18,7 +18,7 @@
   </div>
 
   <!-- Lista de Testes -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ">
     <div *ngFor="let teste of filtrarTestes()" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
       
       <h2 class="text-2xl font-semibold text-black mb-2">{{ teste.nome }}</h2>
@@ -31,7 +31,7 @@
   </div>
 
   <!-- Seção de Qualificações -->
-  <div class="text-center mt-12">
+  <div class="text-center mt-12 bg-gray-50 p-12 rounded">
     <h2 class="text-3xl font-bold text-black mb-4">Prepare-se para os Testes</h2>
     <p class="text-lg text-gray-800 mb-8">Visite a nossa seção de qualificações para se preparar melhor e aumentar suas chances de sucesso nos testes.</p>
     <a routerLink="/qualificacoes" class="bg-primary text-white py-3 px-6 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300 inline-block">Ver Qualificações</a>

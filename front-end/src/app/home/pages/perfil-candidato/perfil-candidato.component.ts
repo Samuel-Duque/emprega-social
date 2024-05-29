@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class PerfilCandidatoComponent {
   usuario = {
-    nome: 'Samuel',
-    foto: 'https://example.com/foto-samuel.jpg',
+    nome: 'João',
+    foto: '/assets/images/usuario-foto.jpg',
     progresso: 100
   };
 

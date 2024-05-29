@@ -7,6 +7,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { CadastroProfissionalComponent } from './auth/cadastro-profissional/cadastro-profissional.component';
 import { VerifyComponent } from './auth/verify/verify.component';
 import { QualificacoesComponent } from './pages/qualificacoes/qualificacoes.component';
+import { PerfilCandidatoComponent } from './pages/perfil-candidato/perfil-candidato.component';
+import { TestesComponent } from './pages/testes/testes.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,14 @@ const routes: Routes = [
         path: 'qualificacoes',
         component: QualificacoesComponent,
       },
+      {
+        path: 'perfil-candidato',
+        component: PerfilCandidatoComponent,
+      },
+      {
+        path: 'testes',
+        component: TestesComponent,
+      },
     ],
   },
   {
@@ -41,7 +51,7 @@ const routes: Routes = [
       {
         path: 'verify',
         component: VerifyComponent,
-      }
+      },
     ],
   },
   {

@@ -9,6 +9,8 @@ import { VagasComponent } from './pages/vagas/vagas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VerifyComponent } from './auth/verify/verify.component';
 import { QualificacoesComponent } from './pages/qualificacoes/qualificacoes.component';
+import { PerfilCandidatoComponent } from './pages/perfil-candidato/perfil-candidato.component';
+import { TestesComponent } from './pages/testes/testes.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { QualificacoesComponent } from './pages/qualificacoes/qualificacoes.comp
     CadastroProfissionalComponent,
     VagasComponent,
     VerifyComponent,
-    QualificacoesComponent
+    QualificacoesComponent,
+    PerfilCandidatoComponent,
+    TestesComponent
   ],
   imports: [
     HomeRoutingModule,

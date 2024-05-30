@@ -27,9 +27,7 @@ class AuthService:
       return response
     except Exception as e:
       print(e)
-      response = {"error_message": "Endereço de email ou senha inválidos"}
-      return Response(status_code=status.HTTP_200_OK, content=json.dumps(response))
-
+      raise HTTPException(status_code=status.HTTP_200_OK, detail="Endereço de email ou senha invalidos")
 
   @staticmethod
   async def register(request: Register):
@@ -47,6 +45,7 @@ class AuthService:
     error = supabase.auth.sign_out()
 
     if error:
+      print(error)
       return Response(status_code=status.HTTP_200_OK, content=json.dumps({"error_message": "Ocorreu um erro ao tentar sair: " + str(error)}))
     else:
       return {"message": "Logout efetuado com sucesso!"}

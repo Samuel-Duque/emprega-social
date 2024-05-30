@@ -15,7 +15,7 @@ async def get_supabase_client():
         settings.supabase_key,
         options=ClientOptions(
             persist_session=False,
-            auto_refresh_token=True,
+            auto_refresh_token=False,
         ),
     )
 

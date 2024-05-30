@@ -42,7 +42,8 @@ class VagasService:
   async def criar_vaga(vaga: Vaga, supabase: Client):
 
     try:
-      response = supabase.table("vagas").insert(vaga.model_dump()).execute()
+      vaga = vaga.model_dump()
+      response = supabase.table("vagas").insert(vaga).execute()
     except Exception as e:
       print(e)
       raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar atualizar a vaga")

@@ -12,6 +12,7 @@ import { first } from 'rxjs';
 export class VagasComponent implements OnInit {
   ufs: Array<SelectComponentOption> = [];
   city: Array<SelectComponentOption> = [];
+  vagasData: Array<any> = [];
 
   vagas = [
     {

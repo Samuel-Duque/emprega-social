@@ -45,6 +45,6 @@ class VagasService:
       response = supabase.table("vagas").insert(vaga.model_dump()).execute()
     except Exception as e:
       print(e)
-      raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar atualizar a vaga")
+      raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar criar a vaga")
     return response
   

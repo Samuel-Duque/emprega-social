@@ -2,7 +2,6 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Vaga(BaseModel):
-    id: Optional[int] = None
     id_empresa: str
     titulo: str
     descricao: str

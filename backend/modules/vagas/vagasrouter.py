@@ -21,5 +21,5 @@ async def criar_vaga(vaga: Vaga, supabase = Depends(get_supabase_client)):
     return await VagasService.criar_vaga(vaga, supabase)
     
 @router.put("atualizar")
-async def atualizar_vaga(id: int, vaga: Vaga, supabase = Depends(supabase_session)):
+async def atualizar_vaga(id: str, vaga: Vaga, supabase = Depends(supabase_session)):
     return await VagasService.atualizar_vaga(id, vaga, supabase)

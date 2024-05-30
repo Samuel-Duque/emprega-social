@@ -20,8 +20,13 @@ class VagasService:
     return data
   
   @staticmethod
-  async def obter_vaga(id: int):
-    return {id}
+  async def obter_vaga(estado: str, cidade: str, supabase: Client):
+    try:
+      data = supabase.table("vagas").select("*").eq("estado", estado).eq("cidade", cidade).execute()
+    except Exception as e:
+      print(e)
+      raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar obter as vagas")
+    return data
   
   @staticmethod
   async def criar_vaga(vaga: Vaga, token: str):

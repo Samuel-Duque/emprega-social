@@ -72,7 +72,6 @@ export class VagasComponent implements OnInit {
   ngOnInit(): void {
     this.getUf();
     this.getCity();
-    this.ibgeService.getLocation();
   }
 
   // Utiliza o serviço de IBGE para buscar as UFs
@@ -93,6 +92,7 @@ export class VagasComponent implements OnInit {
           );
 
           this.ufs = data;
+
         },
         error: (error) => {
           console.error('Ocorreu um erro ao buscar as UFs', error);

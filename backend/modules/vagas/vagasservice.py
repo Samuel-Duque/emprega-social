@@ -11,8 +11,13 @@ from modules.auth.models.register import Register
 class VagasService:
   
   @staticmethod
-  async def obter_vagas(page: int, pagesize: int):
-    return {"page": page, "pageSize": pagesize}
+  async def obter_vagas(supabase: Client):
+    try:
+      data = supabase.table('vagas').select('*').execute()
+    except Exception as e:
+      print(e)
+      raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar obter as vagas")
+    return data
   
   @staticmethod
   async def obter_vaga(id: int):

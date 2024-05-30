@@ -8,11 +8,11 @@ from models.vaga import Vaga
 router = APIRouter(tags=["Vagas"])
 
 @router.get("/obter")
-async def obter_vagas(page: int, pagesize: int):
-    return {"page": page, "pageSize": pagesize}
+async def obter_vagas(supabase = Depends(get_supabase_client)):
+    return await VagasService.obter_vagas(supabase)
 
 @router.get("/obter/{id}")
-async def obter_vaga(id: int, supabase: Vaga = Depends(get_supabase_client)):
+async def obter_vaga(id: int, supabase = Depends(get_supabase_client)):
     response = supabase.table("Vagas").select("*").eq("id", id).execute()
     return response.data
 

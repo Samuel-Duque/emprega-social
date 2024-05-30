@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 export interface SelectComponentOption {
   id: number;
@@ -11,7 +11,7 @@ export interface SelectComponentOption {
   templateUrl: './select.component.html',
   styleUrl: './select.component.css'
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent implements OnChanges {
   @Input() placeholder: string = 'Selecione ou digite';
   @Input() maxLength: number = 120;
   @Input() disabled: boolean = false;
@@ -36,8 +36,10 @@ export class SelectComponent implements OnInit {
 
   constructor(private eRef: ElementRef) { }
 
-  ngOnInit(): void {
-    this.dataFiltered = this.data;
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['data']) {
+      this.dataFiltered = this.data;
+    }
   }
 
   toggleDropdown(){

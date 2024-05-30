@@ -11,10 +11,11 @@
       class="w-full md:w-auto flex flex-wrap flex-col p-6 md:flex-row items-end space-y-4 md:space-y-0 md:space-x-4">
 
       <div class="w-full md:w-96">
-        <label for="vaga-titulo" class="block mb-2  font-medium text-gray-900 dark:text-white">Busque pelo nome da vaga</label>
+        <label for="vaga-titulo" class="block mb-2  font-medium text-gray-900 dark:text-white">Busque pelo nome da
+          vaga</label>
         <input type="search" id="vaga-titulo"
-        class="mr-3 placeholder:font-regular flex items-center w-full p-2 text-gray-900 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Ex: Auxiliar Administrativo" required />
+          class="mr-3 placeholder:font-regular flex items-center w-full p-2 text-gray-900 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Ex: Auxiliar Administrativo" required />
       </div>
 
       <app-select [data]="ufs" label="Estado" class="w-full md:w-32" placeholder="Ex: PE"></app-select>
@@ -29,34 +30,96 @@
     </form>
   </div>
 
-  <span class="block font-regular text-gray-400 text-base mb-4">23 Resultados</span>
+  <span class="block font-regular text-gray-400 text-base mb-4">{{countResult}} Resultados</span>
 
-  <div class="flex justify-center w-full bg-red-400">
-    <h2>Ops</h2>
+  <div class="flex flex-col items-center  mt-2 justify-center w-full">
+
+
+      @if (isLoading) {
+        <div class="flex flex-col min-h-52 flex-1 items-center  mt-2 justify-center w-full">
+
+          <div role="status">
+            <svg aria-hidden="true" class="w-11 h-11 text-gray-200 animate-spin dark:text-gray-600 fill-primary"
+              viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                fill="currentColor" />
+              <path
+                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                fill="currentFill" />
+            </svg>
+          </div>
+          <span class="mt-2 text-gray-500">Buscando vagas...</span>
+        </div>
+      } @else if (countResult == 0 && !isLoading) {
+        <div class="flex flex-col min-h-52 flex-1 items-center  mt-2 justify-center w-full">
+          <h1 class="mt-2 font-semibold"> Nenhum resultado foi encontrado!</h1>
+        </div>
+      } @else {
+    <!-- Lista de Vagas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (item of vagasData(); track item.titulo) {
+      <a href="/ff"
+        class="bg-white rounded-lg cursor-pointer shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+
+        <div class="flex items-center mb-2">
+          <img src="https://d3gcmglegmnvz8.cloudfront.net/logo/logo_fc.svg" alt="Empresa"
+            class="w-8 h-8 rounded-full mr-3 object-contain object-center">
+          <p class="text-gray-500 font-flight">Ferreira Costa</p>
+        </div>
+
+        <h3 class="text-base font-semibold mb-6 leading-tight h-12">Auxiliar Administrativo que vai ajuda s s s s s
+          slfjfl</h3>
+
+        <div class="flex justify-between items-center mb-4">
+
+          <div class="flex items-center flex-1">
+            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.9061 1.99361C13.3698 1.97523 14.8105 2.35865 16.0712 3.10212C17.332 3.84558 18.3646 4.92059 19.0565 6.21009C19.7484 7.49959 20.0731 8.95414 19.9953 10.4153C19.9201 11.8263 19.4725 13.1911 18.6991 14.3716C18.6638 14.444 18.6195 14.5128 18.5662 14.5762L18.4584 14.7047C18.2804 14.9483 18.0889 15.1817 17.8848 15.4039L12.7729 21.6277C12.5831 21.8588 12.2998 21.9928 12.0008 21.993C11.7017 21.9932 11.4182 21.8596 11.2281 21.6288L5.98183 15.2595L5.97989 15.2572C5.87603 15.1326 5.77316 15.0051 5.67142 14.8761L5.53751 14.7137C5.48589 14.6511 5.44281 14.5835 5.40848 14.5124C4.61637 13.3575 4.14086 12.0139 4.03111 10.6158C3.9166 9.15701 4.20467 7.69476 4.86395 6.3883C5.52323 5.08184 6.52845 3.98124 7.77015 3.20635C9.01186 2.43146 10.4424 2.01199 11.9061 1.99361ZM15 9.99719C15 11.6535 13.6569 12.9961 12 12.9961C10.3432 12.9961 9.00005 11.6535 9.00005 9.99719C9.00005 8.34092 10.3432 6.99824 12 6.99824C13.6569 6.99824 15 8.34092 15 9.99719Z"
+                fill="#383838" />
+            </svg>
+            <span class="text-sm font-medium text-black">Igarassu - PE</span>
+          </div>
+
+          <div class="flex items-center flex-1">
+            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M4 4.00012C4 3.44784 4.44772 3.00012 5 3.00012H19C19.5523 3.00012 20 3.44784 20 4.00012C20 4.55241 19.5523 5.00012 19 5.00012V19.0001C19.5523 19.0001 20 19.4478 20 20.0001C20 20.5524 19.5523 21.0001 19 21.0001H5C4.44772 21.0001 4 20.5524 4 20.0001C4 19.4478 4.44772 19.0001 5 19.0001V5.00012C4.44772 5.00012 4 4.55241 4 4.00012ZM9 6.00012C8.44772 6.00012 8 6.44784 8 7.00012V8.00012C8 8.55241 8.44772 9.00012 9 9.00012H10C10.5523 9.00012 11 8.55241 11 8.00012V7.00012C11 6.44784 10.5523 6.00012 10 6.00012H9ZM14 6.00012C13.4477 6.00012 13 6.44784 13 7.00012V8.00012C13 8.55241 13.4477 9.00012 14 9.00012H15C15.5523 9.00012 16 8.55241 16 8.00012V7.00012C16 6.44784 15.5523 6.00012 15 6.00012H14ZM9 10.0001C8.44772 10.0001 8 10.4478 8 11.0001V12.0001C8 12.5524 8.44772 13.0001 9 13.0001H10C10.5523 13.0001 11 12.5524 11 12.0001V11.0001C11 10.4478 10.5523 10.0001 10 10.0001H9ZM14 10.0001C13.4477 10.0001 13 10.4478 13 11.0001V12.0001C13 12.5524 13.4477 13.0001 14 13.0001H15C15.5523 13.0001 16 12.5524 16 12.0001V11.0001C16 10.4478 15.5523 10.0001 15 10.0001H14ZM11 14.0001C10.4696 14.0001 9.96086 14.2108 9.58579 14.5859C9.21071 14.961 9 15.4697 9 16.0001V19H11V16.0001H13V19H15V16.0001C15 15.4697 14.7893 14.961 14.4142 14.5859C14.0391 14.2108 13.5304 14.0001 13 14.0001H11Z"
+                fill="#383838" />
+            </svg>
+            <span class="text-sm font-medium text-black">Presencial</span>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pb-4 border-b-2 border-gray-300">
+
+          <div class="flex items-cente flex-1">
+            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10 2C8.34315 2 7 3.34315 7 5V6H5C3.34315 6 2 7.34315 2 9V11.382L3.44682 12.1054L3.45172 12.1078L3.47887 12.121C3.50439 12.1332 3.54461 12.1523 3.5988 12.1771C3.70722 12.2269 3.87138 12.2999 4.08547 12.3885C4.51397 12.5658 5.14061 12.8047 5.91908 13.0442C7.48062 13.5247 9.62825 14 12 14C14.3717 14 16.5194 13.5247 18.0809 13.0442C18.8594 12.8047 19.486 12.5658 19.9145 12.3885C20.1286 12.2999 20.2928 12.2269 20.4012 12.1771C20.4554 12.1523 20.4956 12.1332 20.5211 12.121L20.5483 12.1078L20.5528 12.1056L20.5538 12.1051L22 11.382V9C22 7.34315 20.6569 6 19 6H17V5C17 3.34315 15.6569 2 14 2H10ZM15 6V5C15 4.44772 14.5523 4 14 4H10C9.44772 4 9 4.44772 9 5V6H15ZM21.4472 13.8944L22 13.618V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V13.6181L2.55278 13.8944L2.55527 13.8957L2.55922 13.8976L2.57152 13.9037L2.61341 13.924C2.64892 13.941 2.69952 13.965 2.76447 13.9948C2.89433 14.0544 3.08173 14.1376 3.32077 14.2365C3.79852 14.4342 4.48438 14.6953 5.33091 14.9558C7.01937 15.4753 9.37174 16 12 16C14.6282 16 16.9806 15.4753 18.6691 14.9558C19.5156 14.6953 20.2015 14.4342 20.6792 14.2365C20.9183 14.1376 21.1057 14.0544 21.2355 13.9948C21.3005 13.965 21.3511 13.941 21.3866 13.924L21.4285 13.9037L21.4408 13.8976L21.4447 13.8957L21.4461 13.895C21.4461 13.895 21.4472 13.8944 21.0146 13.0292L21.4472 13.8944ZM12 10C11.4477 10 11 10.4477 11 11C11 11.5523 11.4477 12 12 12H12.01C12.5623 12 13.01 11.5523 13.01 11C13.01 10.4477 12.5623 10 12.01 10H12Z"
+                fill="#383838" />
+            </svg>
+
+            <span class="text-sm font-medium text-black">Efetivo</span>
+          </div>
+
+          <div class="flex items-center flex-1">
+            <svg class="w-4 h-4 mr-2" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.0001 4C13.3957 4 13.7824 3.8827 14.1113 3.66294C14.4402 3.44318 14.6965 3.13082 14.8479 2.76537C14.9992 2.39992 15.0389 1.99778 14.9617 1.60982C14.8845 1.22186 14.694 0.865492 14.4143 0.585787C14.1346 0.306082 13.7783 0.115601 13.3903 0.0384303C13.0023 -0.0387401 12.6002 0.000866562 12.2347 0.152242C11.8693 0.303617 11.5569 0.559962 11.3372 0.88886C11.1174 1.21776 11.0001 1.60444 11.0001 2C11.0001 2.53043 11.2108 3.03914 11.5859 3.41421C11.961 3.78929 12.4697 4 13.0001 4ZM9.70012 15.4C9.2993 15.9248 8.77479 16.3422 8.17339 16.615C7.57199 16.8878 6.91242 17.0074 6.25353 16.9632C5.59465 16.919 4.95695 16.7124 4.39736 16.3618C3.83777 16.0111 3.37369 15.5274 3.04654 14.9538C2.71939 14.3802 2.53935 13.7345 2.52249 13.0743C2.50562 12.4142 2.65246 11.7601 2.9499 11.1705C3.24733 10.5809 3.68611 10.0742 4.22707 9.69542C4.76803 9.31668 5.39435 9.07777 6.05012 9C6.31533 8.97083 6.5581 8.83749 6.725 8.62933C6.89191 8.42116 6.96929 8.15522 6.94011 7.89C6.91094 7.62478 6.77761 7.38202 6.56944 7.21511C6.36127 7.04821 6.09533 6.97083 5.83011 7C4.23882 7.08885 2.74799 7.8062 1.68559 8.99424C0.6232 10.1823 0.0762677 11.7437 0.165115 13.335C0.253963 14.9263 0.971312 16.4171 2.15936 17.4795C3.3474 18.5419 4.90882 19.0888 6.50011 19C7.43159 19 8.35026 18.7831 9.1834 18.3666C10.0165 17.95 10.7412 17.3452 11.3001 16.6C11.4592 16.3878 11.5276 16.1211 11.4901 15.8586C11.4526 15.596 11.3123 15.3591 11.1001 15.2C10.8879 15.0409 10.6212 14.9725 10.3587 15.0101C10.0961 15.0476 9.85925 15.1878 9.70012 15.4ZM16.5001 17H15.5001V12C15.5001 11.7348 15.3948 11.4804 15.2072 11.2929C15.0197 11.1054 14.7653 11 14.5001 11H9.93012L11.6201 6.34V6.03C11.625 5.9701 11.625 5.9099 11.6201 5.85C11.6258 5.7868 11.6258 5.72321 11.6201 5.66C11.594 5.60134 11.564 5.54454 11.5301 5.49C11.5001 5.43545 11.4631 5.38503 11.4201 5.34C11.3772 5.28913 11.3266 5.24527 11.2701 5.21C11.2701 5.21 11.2701 5.15 11.1901 5.13L6.71011 2.55H6.59012C6.52881 2.52408 6.46519 2.50399 6.40011 2.49H6.00011C5.93064 2.50436 5.86338 2.5279 5.80012 2.56H5.69011L3.00011 4.13C2.80893 4.23831 2.65874 4.40657 2.57276 4.60877C2.48678 4.81098 2.46979 5.03588 2.52442 5.24871C2.57905 5.46154 2.70226 5.65045 2.875 5.78625C3.04774 5.92204 3.2604 5.99717 3.48011 6C3.66205 6.00479 3.84184 5.95985 4.00011 5.87L6.23011 4.57L9.47012 6.45L7.58011 11.66C7.57526 11.7132 7.57526 11.7668 7.58011 11.82C7.57075 11.8796 7.57075 11.9404 7.58011 12C7.59855 12.1283 7.62527 12.2552 7.66011 12.38L7.77012 12.53C7.79736 12.5892 7.83457 12.6434 7.88012 12.69C7.92286 12.7257 7.96989 12.7559 8.02012 12.78C8.07962 12.8258 8.14323 12.8659 8.21012 12.9C8.31911 12.9396 8.43416 12.9599 8.55012 12.96H13.5501V17.96C13.5501 18.2252 13.6555 18.4796 13.843 18.6671C14.0305 18.8546 14.2849 18.96 14.5501 18.96H16.5501C16.8153 18.96 17.0697 18.8546 17.2572 18.6671C17.4448 18.4796 17.5501 18.2252 17.5501 17.96C17.5501 17.6948 17.4448 17.4404 17.2572 17.2529C17.0697 17.0654 16.8153 16.96 16.5501 16.96L16.5001 17Z"
+                fill="black" />
+            </svg>
+
+            <span class="text-sm font-medium text-black">Também p/PCD</span>
+          </div>
+
+        </div>
+
+        <span class="block font-medium text-sm text-gray-500 mt-4">Publica há 2 dias</span>
+      </a>
+
+      }
+    </div>
+  }
   </div>
-  <!-- Lista de Vagas -->
-  <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"> -->
-    <!-- <div *ngFor="let vaga of vagas"
-      class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-      <div class="flex items-center mb-2">
-        <img [src]="vaga.logo" alt="{{ vaga.empresa }}" class="w-10 h-10 rounded-full mr-3 object-cover object-center">
-        <h2 class="text-2xl font-semibold text-black">{{ vaga.titulo }}</h2>
-      </div>
-      <p class="text-lg font-medium text-primary mb-2">{{ vaga.empresa }} - {{ vaga.localizacao }}</p>
-      <p class="text-gray-700 mb-4">{{ vaga.descricao }}</p>
-      <div class="flex justify-between items-center mb-4">
-        <span class="text-lg font-medium text-black">{{ vaga.salario }}</span>
-        <span class="text-sm text-gray-500">{{ vaga.data }}</span>
-      </div>
-      <div class="flex items-center mb-4">
-        <span class="text-sm text-gray-500 mr-4">{{ vaga.tipo }}</span>
-        <span class="text-sm text-gray-500 mr-4">{{ vaga.modelo }}</span>
-        <span class="text-sm text-gray-500">{{ vaga.pcD ? 'Vaga para PcD' : '' }}</span>
-      </div>
-      <button
-        class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">
-        Candidatar-se
-      </button>
-    </div> -->
-  <!-- </div> -->
-</div>

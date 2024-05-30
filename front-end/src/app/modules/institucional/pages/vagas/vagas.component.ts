@@ -1,18 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, WritableSignal } from '@angular/core';
 import { IbgeService } from '@app/core/services/ibge.service';
 import { SelectComponentOption } from '@app/shared/components/select/select.component';
 import { IBGEUFResponse } from '@app/shared/interfaces/ibge';
-import { first } from 'rxjs';
+import { Subject, first, takeUntil } from 'rxjs';
+import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-vagas',
   templateUrl: './vagas.component.html',
   styleUrls: ['./vagas.component.css'],
 })
-export class VagasComponent implements OnInit {
+export class VagasComponent implements OnInit, OnDestroy {
+
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
+
+
   ufs: Array<SelectComponentOption> = [];
   city: Array<SelectComponentOption> = [];
-  vagasData: Array<any> = [];
+  // vagasData: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  // $vagasData = this.vagasData.asObservable();
+
+  vagasData: WritableSignal<Array<any>> = signal([]);
+
+  isLoading = false;
+  countResult = 0;
 
   vagas = [
     {
@@ -71,6 +82,7 @@ export class VagasComponent implements OnInit {
   constructor(private ibgeService: IbgeService) {}
 
   ngOnInit(): void {
+    this.searchVagas();
     this.getUf();
     this.getCity();
   }
@@ -79,7 +91,7 @@ export class VagasComponent implements OnInit {
   getUf() {
     this.ibgeService
       .getUf()
-      .pipe(first())
+      .pipe(first(), takeUntil(this._unsubscribeAll))
       .subscribe({
         next: (response: Array<IBGEUFResponse>) => {
           const data = response.map(
@@ -104,7 +116,7 @@ export class VagasComponent implements OnInit {
   getCity() {
     this.ibgeService
     .getCity('PE')
-    .pipe(first())
+    .pipe(first(), takeUntil(this._unsubscribeAll))
     .subscribe({
       next: (response: Array<IBGEUFResponse>) => {
         const data = response.map(
@@ -124,4 +136,23 @@ export class VagasComponent implements OnInit {
       },
     });
   }
+
+  // Simulanado o carregamento das vagas
+  searchVagas() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.vagasData.set(this.vagas);
+      this.isLoading = false;
+      this.countResult = this.vagasData().length;
+    }, 1000);
+  }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(true);
+    this._unsubscribeAll.complete();
+  }
 }
+function toSignal(arg0: any, arg1: { initialValue: null; }) {
+  throw new Error('Function not implemented.');
+}
+

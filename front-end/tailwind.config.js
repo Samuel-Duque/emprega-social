@@ -13,6 +13,7 @@ module.exports = {
         'fullvh': '100vh',
       },
       fontFamily: {
+        'flight': ['Signika-Light'],
         'regular': ['Signika-Regular'],
         'semibold': ['Signika-SemiBold'],
         'medium': ['Signika-Medium']

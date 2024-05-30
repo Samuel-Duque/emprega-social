@@ -1,0 +1,270 @@
+<div class="max-w-full h-screen flex flex-col">
+  <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center justify-start rtl:justify-end">
+          <a href="/prefeitura" class="flex items-center ms-2 md:me-24">
+            <img src="assets/icons/logotipo.svg" class="h-12" alt="Logo Emprega Social" />
+            <div class="flex flex-col ml-5 border-l-2 border-l-secondary px-4 py-1">
+              <span class="font-medium text-lg text-secondary">Criar nova vaga</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="w-full md:flex flex-1 mt-20 px-3 py-3 lg:px-5 lg:pl-3">
+    <div class="p-6 mr-10 w-full max-w-xs">
+      <div class="md:fixed">
+        <button type="submit" (click)="voltar()"
+          class="sticky p-2.5 right-3 mb-8 text-sm flex items-center font-medium bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 rounded-md px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+          <svg class="w-5 h-5 text-black mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 5H1m0 0 4 4M1 5l4-4"></path>
+          </svg>
+          Voltar para gestão de vagas
+        </button>
+
+        <ol class="relative text-gray-500 border-s-[3px] border-gray-200">
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-primary items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">
+              <svg class="w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 5.917 5.724 10.5 15 1.5" />
+              </svg>
+            </span>
+            <h3 class="font-medium leading-tight">Detalhes da vaga</h3>
+            <p class="text-sm">Aqui você pode adicionar detalhes da vaga</p>
+          </li>
+
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">
+              <svg class="w-3.5 h-3.5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 16 12">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 5.917 5.724 10.5 15 1.5" />
+              </svg>
+            </span>
+            <h3 class="font-medium leading-tight">Descrição da vaga</h3>
+            <p class="text-sm">Descreva a vaga e os requisitos</p>
+          </li>
+
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">
+              <svg class="w-3.5 h-3.5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 16 12">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 5.917 5.724 10.5 15 1.5" />
+              </svg>
+            </span>
+            <h3 class="font-medium">Local de trabalho e dados internos</h3>
+            <p class="text-sm">Informe o local de trabalho e dados internos</p>
+          </li>
+
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">
+              <svg class="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M7.05025 4.05025C8.36301 2.7375 10.1435 2 12 2C13.8565 2 15.637 2.7375 16.9497 4.05025C18.2625 5.36301 19 7.14349 19 9C19 11.4073 17.8026 12.8736 16.8141 14.0841L16.7747 14.1324C15.7705 15.3625 15 16.3394 15 18C15 18.5523 14.5523 19 14 19H10C9.44772 19 9 18.5523 9 18C9 16.3878 8.2294 15.3875 7.21913 14.1247L7.17453 14.069C6.19287 12.8424 5 11.352 5 9C5 7.14348 5.7375 5.36301 7.05025 4.05025ZM9 21C9 20.4477 9.44772 20 10 20H14C14.5523 20 15 20.4477 15 21C15 21.5523 14.5523 22 14 22H10C9.44772 22 9 21.5523 9 21ZM10.5858 7.58579C10.9609 7.21071 11.4696 7 12 7C12.5523 7 13 6.55228 13 6C13 5.44772 12.5523 5 12 5C10.9391 5 9.92172 5.42143 9.17157 6.17157C8.42143 6.92172 8 7.93913 8 9C8 9.55228 8.44772 10 9 10C9.55228 10 10 9.55228 10 9C10 8.46957 10.2107 7.96086 10.5858 7.58579Z"
+                  fill="#6B7280" />
+              </svg>
+            </span>
+            <h3 class="font-medium">Como avaliar os candidatos</h3>
+          </li>
+
+          <li class="cursor-pointer mb-10 ms-6">
+            <span
+              class="absolute flex border-[3px] border-gray-500 items-center justify-center w-8 h-8 bg-white rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">
+              <svg class="w-3.5 h-3.5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 16 12">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 5.917 5.724 10.5 15 1.5" />
+              </svg>
+            </span>
+            <h3 class="font-medium">Definição de etapas e critérios</h3>
+            <p class="text-sm">Informe as etapas e critérios de avaliação</p>
+          </li>
+
+          <!-- <li class="mb-10 ms-6">
+            <span
+              class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+              <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                <path
+                  d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z" />
+              </svg>
+            </span>
+            <h3 class="font-medium leading-tight">Review</h3>
+            <p class="text-sm">Step details here</p>
+          </li>
+          <li class="ms-6">
+            <span
+              class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+              <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                <path
+                  d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z" />
+              </svg>
+            </span>
+            <h3 class="font-medium leading-tight">Confirmation</h3>
+            <p class="text-sm">Step details here</p>
+          </li> -->
+        </ol>
+      </div>
+    </div>
+
+    <div class="px-5 h-50 py-5 flex flex-col justify-between flex-1 shadow-md sm:rounded-lg">
+      <div>
+        @if (step == 1) {
+
+        <!-- Primeiro passo -->
+        <span class="block border-b-gray-200font-medium text-xl border-b-2 pb-3">Detalhe os dados de sua vaga</span>
+        <form class="mx-auto mt-3">
+          <div class="mb-5">
+            <label for="vaga-titulo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dê um nome
+              para sua vaga*</label>
+            <input type="vaga-titulo" id="vaga-titulo"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="Ex: Auxiliar de Serviços Gerais" required />
+
+            <div
+              class="flex items-center mt-2 p-2 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+              role="alert">
+              <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+              </svg>
+              <span class="sr-only">Info</span>
+              <div>
+                <span class="font-medium"></span> Dê um nome para sua vaga que
+                seja fácil de ser identificado e que chame a atenção dos
+                candidatos.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Qual a área da
+              vaga</label>
+            <select id="countries"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option disabled selected>Selecione a área da vaga</option>
+              <option>Administrativo</option>
+              <option>Comercial</option>
+              <option>Financeiro</option>
+              <option>Industrial</option>
+              <option>Logística</option>
+              <option>Marketing</option>
+              <option>Recursos Humanos</option>
+              <option>TI</option>
+              <option>Outros</option>
+            </select>
+          </div>
+
+          <div class="mb-5">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Qual o tipo de
+              vaga?*</label>
+            <select id="countries"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option disabled selected>Selecione o tipo de vaga</option>
+              <option>Efetivo</option>
+              <option>Estágio</option>
+              <option>Jovem Aprendiz</option>
+              <option>Temporário</option>
+              <option>Contrato de trabalho</option>
+            </select>
+          </div>
+
+          <div class="mb-6">
+            <label class="inline-flex items-center mb-2 cursor-pointer">
+              <input type="checkbox" value="" class="sr-only peer" />
+              <div
+                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+              </div>
+              <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Utilizar score social?</span>
+            </label>
+            <div
+              class="flex items-center mt-1 p-2 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+              role="alert">
+              <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+              </svg>
+              <span class="sr-only">Info</span>
+              <div>
+                <span class="font-medium"></span> Dê uma força para quem mais
+                precisa. Utilize o Score Social.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label class="inline-flex items-center mb-2 cursor-pointer">
+              <input type="checkbox" value="" class="sr-only peer" />
+              <div
+                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+              </div>
+              <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Vagas para PCD?</span>
+            </label>
+            <div
+              class="flex items-center mt-1 p-2 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+              role="alert">
+              <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+              </svg>
+              <span class="sr-only">Info</span>
+              <div>
+                <span class="font-medium"></span> Caso a vaga seja destinada a
+                Pessoas com Deficiência, marque essa opção.
+              </div>
+            </div>
+          </div>
+        </form>
+        } @else if (step == 2) {
+        <span class="block border-b-gray-200font-medium text-xl border-b-2 pb-3">Descreva e detalhe aqui as informações
+          de sua vaga</span>
+
+        <div class="mt-3">
+          <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrição da
+            Vaga*</label>
+          <quill-editor class="w-full text-base" [(ngModel)]="htmlContent" [required]="true"
+            placeholder="Ex: O Auxiliar de Serviços Gerais é responsável por..."></quill-editor>
+        </div>
+
+        <div class="mt-4">
+          <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Responsabilidades e
+            atribuições*</label>
+          <quill-editor class="w-full text-base" [(ngModel)]="htmlContent" [required]="true"
+            placeholder="Ex: - Realizar a limpeza e conservação de ambientes..."></quill-editor>
+        </div>
+
+        }
+      </div>
+
+      <div class="w-full md:flex items-center justify-end">
+        @if (step > 1) {
+        <button type="button" (click)="voltarPasso()"
+          class="mr-4 transition-opacity w-full md:w-auto flex items-center justify-center bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-md text-sm px-5 py-2.5 text-center">
+          Voltar
+        </button>
+        }
+
+        <button type="button" (click)="atualizarContinuar()"
+          class="text-white w-full md:w-auto flex items-center justify-center bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 py-2.5 text-center">
+          Atualizar e continuar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

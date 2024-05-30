@@ -29,6 +29,7 @@ module.exports = {
         'primary': '#008A00',
         'primary-hover': '#165d04',
         'secondary': '#012E8B',
+        'tertiary': '#F2D524',
         'secondary-hover': '#012e89',
         'cgray': '#888888',
         'cgray-light': '#DFDFDF',

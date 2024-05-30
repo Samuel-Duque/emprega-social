@@ -1,34 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { LoginComponent } from './auth/login/login.component';
-import { CadastroProfissionalComponent } from './auth/cadastro-profissional/cadastro-profissional.component';
+import { InstitucionalRoutingModule } from './institucional-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InstitucionalComponent } from './institucional.component';
 import { VagasComponent } from './pages/vagas/vagas.component';
-import { HttpClientModule } from '@angular/common/http';
-import { VerifyComponent } from './auth/verify/verify.component';
 import { QualificacoesComponent } from './pages/qualificacoes/qualificacoes.component';
 import { PerfilCandidatoComponent } from './pages/perfil-candidato/perfil-candidato.component';
 import { TestesComponent } from './pages/testes/testes.component';
+import { SharedModule } from '@app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    LoginComponent,
-    CadastroProfissionalComponent,
+    InstitucionalComponent,
     VagasComponent,
-    VerifyComponent,
     QualificacoesComponent,
     PerfilCandidatoComponent,
     TestesComponent
   ],
   imports: [
-    HomeRoutingModule,
+    InstitucionalRoutingModule,
     ReactiveFormsModule,
+    SharedModule,
     FormsModule,
     CommonModule
   ]
 })
-export class HomeModule { }
+export class InstitucionalModule { }

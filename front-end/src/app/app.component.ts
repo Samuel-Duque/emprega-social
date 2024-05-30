@@ -3,7 +3,7 @@ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import {
   initFlowbite,
 } from 'flowbite';
-import { FlowbiteService } from './shared/services/flowbite.service';
+import { FlowbiteService } from './core/services/flowbite.service';
 
 @Component({
   selector: 'app-root',

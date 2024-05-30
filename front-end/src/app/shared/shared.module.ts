@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Erro404Component } from './components/erro-404/erro-404.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { QuillModule } from 'ngx-quill';
+import { SelectComponent } from './components/select/select.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    Erro404Component
+    SelectComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     HttpClientModule,
     QuillModule.forRoot({
       modules: {
@@ -41,7 +43,8 @@ import { QuillModule } from 'ngx-quill';
     }),
   ],
   exports: [
-    QuillModule
+    QuillModule,
+    SelectComponent
   ],
   providers: [
     provideHttpClient(withFetch()),

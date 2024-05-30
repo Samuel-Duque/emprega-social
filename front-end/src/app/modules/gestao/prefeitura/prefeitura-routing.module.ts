@@ -4,7 +4,7 @@ import { PrefeituraComponent } from './prefeitura.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { VagasComponent } from './pages/vagas/vagas.component';
 import { CriarVagaComponent } from './pages/vagas/criar-vaga/criar-vaga.component';
-import { HomeComponent } from '@app/home/home.component';
+import { InstitucionalComponent } from '@app/Institucional/Institucional.component';
 
 const routes: Routes = [
   {

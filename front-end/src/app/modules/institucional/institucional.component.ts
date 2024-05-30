@@ -3,11 +3,11 @@ import { NavigationEnd, Router } from '@angular/router';
 import { initFlowbite } from 'flowbite';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  selector: 'app-institucional',
+  templateUrl: './institucional.component.html',
+  styleUrl: './institucional.component.css'
 })
-export class HomeComponent implements OnInit{
+export class InstitucionalComponent implements OnInit{
 
   constructor(private router: Router) { }
 

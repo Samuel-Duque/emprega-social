@@ -37,6 +37,7 @@ class VagasService:
   
   @staticmethod
   async def obter_vaga(estado: str, cidade: str, supabase: Client):
+
     try:
       data = supabase.table("vagas").select("*").eq("estado", estado).eq("cidade", cidade).execute()
     except Exception as e:
@@ -46,9 +47,9 @@ class VagasService:
   
   @staticmethod
   async def atualizar_vaga(id: int, vaga: Vaga, supabase: Client):
+
     try:
-      vaga_data = vaga.model_dump()
-      response = supabase.table("vagas").update(vaga_data).eq("id", id).execute()
+      response = supabase.table("vagas").update(vaga.model_dump()).eq("id", id).execute()
     except Exception as e:
       print(e)
       raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar atualizar a vaga")
@@ -56,7 +57,6 @@ class VagasService:
   
   @staticmethod
   async def criar_vaga(vaga: Vaga, supabase: Client):
-
     try:
       vaga = vaga.model_dump()
       response = supabase.table("vagas").insert(vaga).execute()

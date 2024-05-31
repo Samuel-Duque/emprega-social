@@ -15,7 +15,6 @@ class Vaga(BaseModel):
     bairro: str
     pais: str
     tipo: str # 'Efetivo', 'Pessoa Jurídica', 'Estágio', 'Temporário', 'Aprendiz', 'Terceiro', 'Voluntário', 'Trainee',  'Freelancer'
-    modelo_contratacao: str # Presencial, Remoto, Híbrido
     nivel: str # Júnior, Pleno, Sênior, Especialista
     area: str # Desenvolvimento, Design, Marketing, Vendas, Administrativo
     data_publicacao: str
@@ -26,14 +25,12 @@ class Vaga(BaseModel):
     exibe_salario: bool
     exibe_quantidade_vagas: bool
     exclusivo_pcd: bool
-    permite_pcd: bool
-    
 
 
     model_config = {
         'json_schema_extra': {
             "example": {
-                "id_empresa": "1",
+                "id_empresa": "c2273457-4c14-4ee2-a3fe-c54aad9d2dbc",
                 "titulo": "Desenvolvedor Python",
                 "descricao": "Desenvolver aplicações em Python",
                 "salario": 5000.00,
@@ -46,7 +43,6 @@ class Vaga(BaseModel):
                 "bairro": "Vila do Chaves",
                 "pais": "Brasil",
                 "tipo": "CLT",
-                "modelo_contratacao": "Presencial",
                 "nivel": "Pleno",
                 "area": "Desenvolvimento",
                 "data_publicacao": "2021-09-01",
@@ -57,7 +53,6 @@ class Vaga(BaseModel):
                 "exibe_salario": True,
                 "exibe_quantidade_vagas": True,
                 "exclusivo_pcd": False,
-                "permite_pcd": True
             }
         }
     }

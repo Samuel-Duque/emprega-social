@@ -12,6 +12,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 #Rotas
 from modules.auth import authrouter
 from modules.vagas import vagasrouter
+from modules.qualificacoes import qualificacoesrouter
 
 app = FastAPI(
     title="API do Projeto Emprega Social", 
@@ -41,6 +42,7 @@ async def http_exception_handler(request, exc):
 
 app.include_router(authrouter.router, prefix="/api/v1/auth")
 app.include_router(vagasrouter.router, prefix="/api/v1/vagas")
+app.include_router(qualificacoesrouter.router, prefix="/api/v1/qualificacoes")
 
 # Inicializando o servidor
 if __name__ == "__main__":

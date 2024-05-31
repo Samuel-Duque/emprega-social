@@ -2,7 +2,6 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Qualificacao(BaseModel):
-    id: Optional[int]
     titulo: str
     descricao: str
     duracao: str # 3 meses, 6 meses, 1 ano
@@ -32,5 +31,3 @@ class Qualificacao(BaseModel):
             "dificuldade": self.dificuldade,
             "id_categoria": self.id_categoria
         }
-
-    

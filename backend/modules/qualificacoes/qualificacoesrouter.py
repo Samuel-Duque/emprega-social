@@ -11,14 +11,14 @@ router = APIRouter(tags=["Qualificacoes"])
 async def obter_qualificacoes(supabase = Depends(get_supabase_client)):
     return await QualificacoesService.obter_qualificacoes(supabase)
 
-@router.get("/obter/{duracao}/{modalidade}/{dificuldade}")
-async def obter_qualificacao(duracao: str, modalidade: str, dificuldadae: str, supabase = Depends(get_supabase_client)):
-    return await QualificacoesService.obter_qualificacao(duracao, modalidade, dificuldadae, supabase)
+@router.get("/obter/{id}}")
+async def obter_qualificacao(id: str, supabase = Depends(get_supabase_client)):
+    return await QualificacoesService.obter_qualificacao(id, supabase)
 
 @router.post("/criar")
 async def criar_qualificacao(qualificacao: Qualificacao, supabase = Depends(get_supabase_client)):
     return await QualificacoesService.criar_qualificacao(qualificacao, supabase)
     
-@router.put("atualizar")
+@router.put("/atualizar/{id}")
 async def atualizar_qualificacao(id: str, qualificacao: Qualificacao, supabase = Depends(supabase_session)):
     return await QualificacoesService.atualizar_qualificacao(id, qualificacao, supabase)

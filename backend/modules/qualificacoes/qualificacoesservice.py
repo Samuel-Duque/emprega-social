@@ -24,9 +24,9 @@ class QualificacoesService:
     return data
   
   @staticmethod
-  async def obter_qualificacao(duracao: str, modalidade: str, dificuldade: str, supabase: Client):
+  async def obter_qualificacao(id: str, supabase: Client):
     try:
-      data = supabase.table("qualificacoes").select("*").eq("duracao", duracao).eq("modalidade", modalidade).eq("dificuldade", dificuldade).execute()
+      data = supabase.table("qualificacoes").select("*").eq("id", id).execute()
     except Exception as e:
       print(e)
       raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar obter a qualificação")

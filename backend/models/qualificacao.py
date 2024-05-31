@@ -8,6 +8,7 @@ class Qualificacao(BaseModel):
     modalidade: str # Presencial, Online, Híbrido
     dificuldade: str # Básico, Intermediário, Avançado
     id_categoria: str # Matemática, Lógica, Lingua Portuguesa
+    banner_url: str
 
     model_config = {
         'json_schema_extra': {
@@ -17,7 +18,8 @@ class Qualificacao(BaseModel):
                 "duracao": "3 meses",
                 "modalidade": "Online",
                 "dificuldade": "Básico",
-                "id_categoria": "1"
+                "id_categoria": "1",
+                "banner_url": " "
             }
         }
     }
@@ -29,5 +31,6 @@ class Qualificacao(BaseModel):
             "duracao": self.duracao,
             "modalidade": self.modalidade,
             "dificuldade": self.dificuldade,
-            "id_categoria": self.id_categoria
+            "id_categoria": self.id_categoria,
+            "banner_url": self.banner_url
         }

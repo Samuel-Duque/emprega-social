@@ -1,16 +1,27 @@
-// Função que recebe uma data e conta quantos dias forams ex: 2 dias, 30 dias 1 mês
+// Função que recebe uma data e conta quantos dias forams ex: 1 hora, 2 dias, 30 dias 1 mês
 export const transformDate = (date: string): string => {
+  // data = 2021-09-01T00:00:00
+
   const currentDate = new Date();
   const dateToCompare = new Date(date);
   const diffTime = Math.abs(currentDate.getTime() - dateToCompare.getTime());
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
+
   if (diffDays === 1) {
     return `${diffDays} dia`;
   }
-  if (diffDays < 30) {
+  if (diffDays < 30 && diffDays > 1) {
     return `${diffDays} dias`;
   }
-  const diffMonths = Math.ceil(diffDays / 30);
+  if (diffHours === 1) {
+    return `${diffHours} hora`;
+  }
+  if (diffHours < 24) {
+    return `${diffHours} horas`;
+  }
+
+  const diffMonths = Math.floor(diffDays / 30);
   if (diffMonths === 1) {
     return `${diffMonths} mês`;
   }

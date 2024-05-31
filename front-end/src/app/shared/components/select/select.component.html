@@ -20,7 +20,7 @@
   @if (isOpen) {
     <ul #options  class="w-full max-h-44 min-h-2 overflow-auto shadow bg-white absolute z-50 border border-gray-300 rounded-md">
       @for (option of dataFiltered; track $index) {
-        <li (click)="selectOption(option.id)" [ngClass]="{'font-semibold': option.selected, 'font-regular': !option.selected}" class="hover:bg-gray-50 hover:font-semibold cursor-pointer px-4 py-1">{{option.value}}</li>
+        <li id="option-{{$index}}" (click)="selectOption(option.id)" [ngClass]="{'font-semibold': option.selected, 'font-regular': !option.selected, 'bg-gray-50 font-semibold': $index == selectedIndex}" class="hover:bg-gray-50 hover:font-semibold cursor-pointer px-4 py-1">{{option.value}}</li>
       }
     </ul>
   }

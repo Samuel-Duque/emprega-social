@@ -6,6 +6,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { QualificacoesComponent } from './pages/qualificacoes/qualificacoes.component';
 import { PerfilCandidatoComponent } from './pages/perfil-candidato/perfil-candidato.component';
 import { TestesComponent } from './pages/testes/testes.component';
+import { VisualizarVagaComponent } from './pages/vagas/visualizar-vaga/visualizar-vaga.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
         component: TestesComponent,
       },
     ],
+  },
+  {
+    path: 'vagas/:id',
+    component: VisualizarVagaComponent,
   },
 ];
 

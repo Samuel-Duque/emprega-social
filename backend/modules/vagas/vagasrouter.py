@@ -1,16 +1,15 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
 
 from modules.vagas.vagasservice import VagasService
 from core.supabase import get_supabase_client
-from core.auth import validate_jwt
-from models.vaga import Vaga
+from models.vaga import Vaga, VagaSearch
 from modules.auth.authrouter import supabase_session
 
 router = APIRouter(tags=["Vagas"])
 
-@router.get("/obter")
-async def obter_vagas(supabase = Depends(get_supabase_client)):
-    return await VagasService.obter_vagas(supabase)
+@router.post("/obter")
+async def obter_vagas(search: VagaSearch, supabase = Depends(get_supabase_client)):
+    return await VagasService.obter_vagas(search, supabase)
 
 @router.get("/obter/{estado}/{cidade}")
 async def obter_vaga(estado: str, cidade: str, supabase = Depends(get_supabase_client)):

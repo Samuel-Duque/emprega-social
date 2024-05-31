@@ -1,7 +1,8 @@
-import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges, ViewChild, forwardRef } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export interface SelectComponentOption {
-  id: number;
+  id: number | string;
   selected: boolean;
   value: string;
 }
@@ -9,15 +10,23 @@ export interface SelectComponentOption {
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
-  styleUrl: './select.component.css'
+  styleUrl: './select.component.css',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true
+    }
+  ]
 })
-export class SelectComponent implements OnChanges {
+export class SelectComponent implements OnChanges, ControlValueAccessor {
   @Input() placeholder: string = 'Selecione ou digite';
   @Input() maxLength: number = 120;
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
   @Input() label: string = '';
   @Input() data: Array<SelectComponentOption> = [];
+  control: FormControl = new FormControl();
 
   @ViewChild('options') optionsList!: ElementRef;
 
@@ -25,6 +34,7 @@ export class SelectComponent implements OnChanges {
   clickout(event: any) {
     if(!this.eRef.nativeElement.contains(event.target)) {
       this.isOpen = false;
+      this.selectedIndex = -1;
     }
   }
 
@@ -32,6 +42,8 @@ export class SelectComponent implements OnChanges {
   inputValue = '';
   isOpen = false;
   isOptionSelected = false;
+  selectedIndex = -1;
+  scrollPosition = 0;
 
 
   constructor(private eRef: ElementRef) { }
@@ -42,6 +54,18 @@ export class SelectComponent implements OnChanges {
     }
   }
 
+  writeValue(value: any): void {
+    this.control.setValue(value);
+  }
+
+  registerOnChange(fn: any): void {
+    this.control.valueChanges.subscribe(fn);
+  }
+
+  registerOnTouched(fn: any): void {
+    this.control.valueChanges.subscribe(fn);
+  }
+
   toggleDropdown(){
     this.isOpen = !this.isOpen;
   }
@@ -49,9 +73,7 @@ export class SelectComponent implements OnChanges {
   // Se o select estiver como true e mesmo assim digitar algo, ele apaga o valor do select
   filterData() {
     if (this.isOptionSelected) {
-      this.isOptionSelected = false;
-      this.inputValue = '';
-      this.dataFiltered = this.data;
+      this.clearInput();
     }
 
     if (this.inputValue) {
@@ -61,8 +83,11 @@ export class SelectComponent implements OnChanges {
     }
   }
 
-  selectOption(id: number) {
+  selectOption(id: number | string) {
+
     this.clearInput();
+
+    this.control.setValue(id);
     this.inputValue = this.dataFiltered.find(option => option.id === id)?.value || '';
     this.isOptionSelected = true;
     this.dataFiltered.find(option => option.id === id)!.selected = true;
@@ -71,6 +96,8 @@ export class SelectComponent implements OnChanges {
 
   //limpa
   clearInput() {
+    this.control.setValue('');
+
     this.inputValue = '';
     this.dataFiltered = this.data;
     this.isOptionSelected = false;

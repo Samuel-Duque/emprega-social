@@ -14,7 +14,7 @@ class Vaga(BaseModel):
     cep: str
     bairro: str
     pais: str
-    tipo: str # CLT, PJ, Estágio
+    tipo: str # 'Efetivo', 'Pessoa Jurídica', 'Estágio', 'Temporário', 'Aprendiz', 'Terceiro', 'Voluntário', 'Trainee',  'Freelancer'
     modelo_contratacao: str # Presencial, Remoto, Híbrido
     nivel: str # Júnior, Pleno, Sênior, Especialista
     area: str # Desenvolvimento, Design, Marketing, Vendas, Administrativo
@@ -63,4 +63,24 @@ class Vaga(BaseModel):
     }
 
 
-    
+    #   termo: string,
+    #   uf: string,
+    #   cidade: string,
+    #   tipoVaga: string, 
+
+class VagaSearch(BaseModel):
+    termo: str
+    uf: str
+    cidade: str
+    tipoVaga: str
+
+    model_config = {
+        'json_schema_extra': {
+            "example": {
+                "termo": "Desenvolvedor",
+                "uf": "SP",
+                "cidade": "São Paulo",
+                "tipoVaga": "Efetivo"
+            }
+        }
+    } 

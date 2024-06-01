@@ -130,6 +130,8 @@ export class VagasComponent implements OnInit, OnDestroy {
             tbm_pcd: vaga.tbm_pcd,
             modelo_trabalho: vaga.modelo_trabalho,
             tipo: vaga.tipo,
+            logo: vaga.empresa.logotipo_url,
+            empresa: vaga.empresa.nome,
             // empresa: vaga.company,
             // localizacao: vaga.location,
             // descricao: vaga.description,

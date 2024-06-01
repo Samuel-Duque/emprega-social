@@ -2,13 +2,13 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Qualificacao(BaseModel):
-    id: Optional[int]
     titulo: str
     descricao: str
     duracao: str # 3 meses, 6 meses, 1 ano
     modalidade: str # Presencial, Online, Híbrido
     dificuldade: str # Básico, Intermediário, Avançado
     id_categoria: str # Matemática, Lógica, Lingua Portuguesa
+    banner_url: str
 
     model_config = {
         'json_schema_extra': {
@@ -18,7 +18,8 @@ class Qualificacao(BaseModel):
                 "duracao": "3 meses",
                 "modalidade": "Online",
                 "dificuldade": "Básico",
-                "id_categoria": "1"
+                "id_categoria": "1",
+                "banner_url": " "
             }
         }
     }
@@ -30,7 +31,6 @@ class Qualificacao(BaseModel):
             "duracao": self.duracao,
             "modalidade": self.modalidade,
             "dificuldade": self.dificuldade,
-            "id_categoria": self.id_categoria
+            "id_categoria": self.id_categoria,
+            "banner_url": self.banner_url
         }
-
-    

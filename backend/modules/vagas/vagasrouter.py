@@ -11,9 +11,9 @@ router = APIRouter(tags=["Vagas"])
 async def obter_vagas(search: VagaSearch, supabase = Depends(get_supabase_client)):
     return await VagasService.obter_vagas(search, supabase)
 
-@router.get("/obter/{estado}/{cidade}")
-async def obter_vaga(estado: str, cidade: str, supabase = Depends(get_supabase_client)):
-    return await VagasService.obter_vaga(estado, cidade, supabase)
+@router.get("/obter/{id}")
+async def obter_vaga(id: str, supabase = Depends(get_supabase_client)):
+    return await VagasService.obter_vaga(id, supabase)
 
 @router.post("/criar")
 async def criar_vaga(vaga: Vaga, supabase = Depends(get_supabase_client)):

@@ -27,3 +27,17 @@ export const transformDate = (date: string): string => {
   }
   return `${diffMonths} meses`;
 };
+
+// transforma a data para dd/mm/yyyy
+export const transformDateToBR = (date: string): string => {
+  // data = 2021-09-01T00:00:00
+  const dateToTransform = new Date(date);
+  const day = dateToTransform.getDate();
+  const month = dateToTransform.getMonth() + 1;
+  const year = dateToTransform.getFullYear();
+
+  const formattedDay = day < 10 ? `0${day}` : day;
+  const formattedMonth = month < 10 ? `0${month}` : month;
+
+  return `${formattedDay}/${formattedMonth}/${year}`;
+};

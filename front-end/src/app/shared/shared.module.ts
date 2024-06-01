@@ -4,11 +4,13 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 import { QuillModule } from 'ngx-quill';
 import { SelectComponent } from './components/select/select.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    SelectComponent
+    SelectComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     QuillModule,
-    SelectComponent
+    SelectComponent,
+    FooterComponent
   ],
   providers: [
     provideHttpClient(withFetch()),

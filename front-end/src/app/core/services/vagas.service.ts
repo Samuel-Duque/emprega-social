@@ -11,6 +11,10 @@ export class VagasService {
   constructor(private http: HttpClient) {}
 
   getVagas(search: VagasParams) {
-    return this.http.post(environment.apiUrl + '/vagas/obter', search);
+    return this.http.post(environment.apiBaseUrl + '/vagas/obter', search);
+  }
+
+  getVaga(id: string) {
+    return this.http.get(environment.apiBaseUrl + '/vagas/obter/' + id);
   }
 }

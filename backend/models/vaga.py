@@ -1,3 +1,4 @@
+import datetime
 from typing import Optional
 from pydantic import BaseModel
 
@@ -15,8 +16,6 @@ class Vaga(BaseModel):
     bairro: str
     pais: str
     tipo: str # 'Efetivo', 'Pessoa Jurídica', 'Estágio', 'Temporário', 'Aprendiz', 'Terceiro', 'Voluntário', 'Trainee',  'Freelancer'
-    modelo_contratacao: str # Presencial, Remoto, Híbrido
-    nivel: str # Júnior, Pleno, Sênior, Especialista
     area: str # Desenvolvimento, Design, Marketing, Vendas, Administrativo
     data_publicacao: str
     data_expiracao: str
@@ -26,47 +25,41 @@ class Vaga(BaseModel):
     exibe_salario: bool
     exibe_quantidade_vagas: bool
     exclusivo_pcd: bool
-    permite_pcd: bool
-    
+    tbm_pcd: bool
+    modelo_trabalho: str # Presencial, Remoto, Híbrido
 
 
     model_config = {
         'json_schema_extra': {
             "example": {
                 "id_empresa": "1",
-                "titulo": "Desenvolvedor Python",
-                "descricao": "Desenvolver aplicações em Python",
+                "titulo": "Desenvolvedor Full Stack",
+                "descricao": "Desenvolvimento de aplicações web",
                 "salario": 5000.00,
-                "estado": "SP",
-                "cidade": "São Paulo",
-                "endereco": "Rua dos Bobos",
-                "numero": "0",
-                "complemento": "",
-                "cep": "00000-000",
-                "bairro": "Vila do Chaves",
+                "estado": "PE",
+                "cidade": "Recife",
+                "endereco": "Rua da Empresa",
+                "numero": "123",
+                "complemento": "Sala 2",
+                "cep": "12345-678",
+                "bairro": "Bairro da Empresa",
                 "pais": "Brasil",
-                "tipo": "CLT",
-                "modelo_contratacao": "Presencial",
-                "nivel": "Pleno",
+                "tipo": "Efetivo",
                 "area": "Desenvolvimento",
-                "data_publicacao": "2021-09-01",
-                "data_expiracao": "2021-09-30",
+                "data_publicacao": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "data_expiracao": "2022-01-31 23:59:59",
                 "criado_por": "1",
-                "status": "Aberta",
+                "status": "Publicada",
                 "quantidade_vagas": 1,
                 "exibe_salario": True,
                 "exibe_quantidade_vagas": True,
                 "exclusivo_pcd": False,
-                "permite_pcd": True
+                "tbm_pcd": False,
+                "modelo_trabalho": "Remoto"
             }
         }
     }
 
-
-    #   termo: string,
-    #   uf: string,
-    #   cidade: string,
-    #   tipoVaga: string, 
 
 class VagaSearch(BaseModel):
     termo: str

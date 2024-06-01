@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '@app/core/services/auth.service';
 import { ErrorResponse } from '@app/shared/interfaces/error';
 import { VerifySession } from '@app/shared/interfaces/verifySession';
-import { AuthService } from '@app/shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, first, takeUntil } from 'rxjs';
 
@@ -13,11 +13,16 @@ import { Subject, first, takeUntil } from 'rxjs';
 })
 export class VerifyComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any> = new Subject<any>();
+  private redirect: string = '';
 
-  constructor(private route: Router, private toast: ToastrService, private authService: AuthService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private toast: ToastrService, private authService: AuthService) { }
 
   ngOnInit() {
     this.verifyInfos();
+
+    this.route.queryParams.subscribe(params => {
+      this.redirect = params['redirect'];
+    });
   }
 
   private verifyInfos() {
@@ -28,13 +33,13 @@ export class VerifyComponent implements OnInit, OnDestroy {
           if ('error_message' in response) {
             this.toast.error(response.error_message, 'Erro')
           } else {
-            const redirect = response.redirectTo
-            this.route.navigate([redirect]);
+            const redirect = response.redirect
+            this.router.navigate([redirect]);
           }
         },
         error: (error) => {
-          this.route.navigate(['/auth/login']);
-          // this.toast.error("Ocorreu um erro ao realizar a verificação das informações", "Erro");
+          const redirect = this.redirect ? this.redirect : 'login';
+          this.router.navigate([`/auth/${redirect}`]);
         },
       })
     // }

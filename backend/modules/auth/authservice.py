@@ -1,6 +1,6 @@
 import json
 from fastapi import Depends, HTTPException, Response, status
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 import supabase
 from typing_extensions import Annotated
 from supabase import Client
@@ -74,11 +74,11 @@ class AuthService:
       # Determina a regra do usuário
       match(regra):
         case 'prefeitura':
-          return {"message": "Informações válidas!", "redirectTo": "/prefeitura"}
+          return {"message": "Informações válidas!", "redirect": "/gestao"}
         case 'empresa':
-          return {"message": "Informações válidas!", "redirectTo": "/empresa"}
+          return {"message": "Informações válidas!", "redirect": "/gestao"}
         case 'candidato':
-          return {"message": "Informações válidas!", "redirectTo": "/candidato"}
+          return {"message": "Informações válidas!", "redirect": "/candidato"}
         case _:
           return Response(status_code=status.HTTP_403_FORBIDDEN, content=json.dumps({"error_message": "Usuário não autorizado"}))
         

@@ -35,6 +35,7 @@ export class VerifyComponent implements OnInit, OnDestroy {
           } else {
             const redirect = response.redirect
             this.router.navigate([redirect]);
+            this.authService.setRole(response.role);
           }
         },
         error: (error) => {
@@ -42,7 +43,6 @@ export class VerifyComponent implements OnInit, OnDestroy {
           this.router.navigate([`/auth/${redirect}`]);
         },
       })
-    // }
   }
 
   ngOnDestroy() {

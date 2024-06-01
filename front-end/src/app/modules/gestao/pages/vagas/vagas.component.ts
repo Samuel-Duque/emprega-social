@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FlowbiteService } from '@app/shared/services/flowbite.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { initFlowbite, Dropdown } from 'flowbite';
+import { FlowbiteService } from '@app/core/services/flowbite.service';
+import { initFlowbite, Dropdown, initDropdowns, DropdownOptions } from 'flowbite';
 
 @Component({
   selector: 'app-vagas',
@@ -10,6 +10,8 @@ import { initFlowbite, Dropdown } from 'flowbite';
 })
 export class VagasComponent implements OnInit {
 
+  // @ViewChild('dropdown') dropdown: any;
+
     constructor(private flowService: FlowbiteService, private router: Router, private route: ActivatedRoute) { }
 
     ngOnInit(): void {
@@ -17,7 +19,15 @@ export class VagasComponent implements OnInit {
     }
 
     abrirDropdown(id: string) {
-      const dropdown = new Dropdown(document.getElementById(id));
+      const options: DropdownOptions = {
+
+
+      };
+
+      const $dropdown = document.getElementById(id);
+      const $card = document.getElementById(id.replace('dropdown', 'button'));
+
+      const dropdown =  new Dropdown($dropdown, $card, options);
       dropdown.show()
     }
 

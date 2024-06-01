@@ -1,26 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { AuthService } from '@app/shared/services/auth.service';
-import { FlowbiteService } from '@app/shared/services/flowbite.service';
+import { AuthService } from '@app/core/services/auth.service';
+import { FlowbiteService } from '@app/core/services/flowbite.service';
 import { initFlowbite } from 'flowbite';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs';
 
 @Component({
-  selector: 'app-prefeitura',
-  templateUrl: './prefeitura.component.html',
-  styleUrl: './prefeitura.component.css'
+  selector: 'app-gestao',
+  templateUrl: './gestao.component.html',
+  styleUrl: './gestao.component.css'
 })
-export class PrefeituraComponent implements OnInit {
+export class GestaoComponent implements OnInit, OnDestroy {
+
+  routerSubscription: any;
 
   constructor(private flowService: FlowbiteService, private router: Router, private authService: AuthService, private toast: ToastrService) { }
 
   ngOnInit() {
+    this.flowService.init();
     this.flowbite();
   }
 
   private flowbite() {
-    this.router.events.subscribe((event) => {
+    this.routerSubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
           this.flowService.init();
       }
@@ -38,6 +41,8 @@ export class PrefeituraComponent implements OnInit {
     });
   }
 
-
+  ngOnDestroy() {
+    this.routerSubscription.unsubscribe();
+  }
 
 }

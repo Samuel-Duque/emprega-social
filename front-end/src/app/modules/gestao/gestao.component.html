@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+<!-- <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
   <div class="px-3 py-3 lg:px-5 lg:pl-3">
     <div class="flex items-center justify-between">
       <div class="flex items-center justify-start rtl:justify-end">
@@ -166,4 +166,94 @@
   <div class="p-4 --border-2 --border-gray-200 --border-dashed rounded-lg dark:border-gray-700 mt-14">
     <router-outlet></router-outlet>
   </div>
+</div> -->
+
+<nav class="bg-white shadow-md fixed w-full top-0 left-0 z-50">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="assets/icons/logotipo.svg" class="h-12.5" alt="Logo Emprega Social" />
+      <span class="font-medium text-lg border-l-2 border-l-primary px-4 py-1 ml-5 text-primary">Gestão</span>
+    </a>
+    <div class="flex md:order-2 justify-center items-center">
+
+      <div class="flex items-center">
+        <div class="flex items-center ms-3">
+          <div class="flex items-center">
+            <button type="button" class="flex text-sm bg-secondary rounded-full focus:ring-4 focus:ring-gray-300"
+              aria-expanded="false" data-dropdown-toggle="dropdown-user">
+              <span class="sr-only">Abrir menu</span>
+              <img class="w-10 h-10 rounded-full"
+                src="https://xmcycccojzrsxlslgomq.supabase.co/storage/v1/object/public/images_publicas/foto_perfil.png"
+                alt="Foto de usuário">
+            </button>
+          </div>
+          <div
+            class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+            id="dropdown-user">
+            <div class="px-4 py-3" role="none">
+              <p class="text-sm text-gray-900 dark:text-white" role="none">
+                Carlos Eduardo
+              </p>
+              <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                neil.sims&#64;gmail.com
+              </p>
+            </div>
+            <ul class="py-1" role="none">
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Configurações</a>
+              </li>
+              <li>
+                <a (click)="logout()"
+                  class="block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-red-300 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Sair</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex ml-4 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
+        <span class="sr-only">Abrir menu principal</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+    </div>
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+      <ul class="flex flex-col font-regular p-4 md:p-0 mt-4 border rounded-md bg-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+        <li>
+          <a routerLink="/gestao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary" aria-current="page">Visão geral</a>
+        </li>
+        <li>
+          <a routerLink="/vagas" routerLinkActive="active" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary">Empresas</a>
+        </li>
+        <li>
+          <a routerLink="/gestao/vagas" routerLinkActive="active" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary">Gestão de vagas</a>
+        </li>
+        <li>
+          <a routerLink="/qualificacoes" routerLinkActive="active" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary">Qualificações</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-primary">Usuários</a>
+        </li>
+        <!-- <button type="button" routerLink="/login" class="text-secondary sm:hidden mt-4 bg-white border-2 border-secondary focus:outline-none hover:text-white hover:bg-secondary focus:ring-4 focus:ring-gray-100 font-semibold rounded-md text-sm px-5 py-2.5">
+          Acessar
+        </button>
+        <button type="button" routerLink="/login" class="text-white sm:hidden mt-2 bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 py-2.5 text-center">
+          Cadastrar
+        </button> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="pt-20">
+  <router-outlet></router-outlet>
 </div>
+
+
+<app-footer></app-footer>

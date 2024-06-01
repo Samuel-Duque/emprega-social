@@ -74,11 +74,11 @@ class AuthService:
       # Determina a regra do usuário
       match(regra):
         case 'prefeitura':
-          return {"message": "Informações válidas!", "redirect": "/gestao"}
+          return {"message": "Informações válidas!", "role": regra, "redirect": "/gestao"}
         case 'empresa':
-          return {"message": "Informações válidas!", "redirect": "/gestao"}
+          return {"message": "Informações válidas!", "role": regra, "redirect": "/gestao"}
         case 'candidato':
-          return {"message": "Informações válidas!", "redirect": "/candidato"}
+          return {"message": "Informações válidas!", "role": regra, "redirect": "/candidato"}
         case _:
           return Response(status_code=status.HTTP_403_FORBIDDEN, content=json.dumps({"error_message": "Usuário não autorizado"}))
         

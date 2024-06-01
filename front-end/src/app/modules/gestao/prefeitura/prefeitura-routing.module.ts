@@ -19,6 +19,7 @@ const routes: Routes = [
         path: 'vagas',
         component: VagasComponent,
       },
+      
     ],
   },
   {

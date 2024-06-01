@@ -1,0 +1,46 @@
+<div class="container mx-auto pt-24 p-4 sm:p-8 md:p-20 xl:px-40 ">
+    <!-- Seção de Boas-vindas -->
+    <div class="bg-white rounded-lg shadow p-6 mb-8 flex items-center justify-between">
+      <div class="flex items-center">
+        <img [src]="empresa.logo" alt="Logo da {{ empresa.nome }}" class="w-20 h-20 object-cover object-center rounded-full mr-6">
+        <div>
+          <h1 class="text-3xl font-bold text-black">Bem-vindo(a), {{ empresa.nome }}</h1>
+          <p class="text-gray-600">Gerencie suas oportunidades de emprego e candidaturas.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Seção de Oportunidades e Candidaturas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-black">{{ empresa.vagas }}</h2>
+          <p class="text-gray-600">Vagas criadas</p>
+        </div>
+        <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">VER</button>
+      </div>
+      <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-black">{{ empresa.candidaturas }}</h2>
+          <p class="text-gray-600">Candidaturas</p>
+        </div>
+        <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">VER</button>
+      </div>
+    </div>
+  
+    <!-- Seção de Vagas -->
+    <div class="bg-white rounded-lg shadow p-6 mb-8">
+      <h2 class="text-2xl font-bold text-black mb-4">Vagas Publicadas</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div *ngFor="let vaga of vagas" class="bg-gray-100 rounded-lg p-4 flex flex-col">
+          <h3 class="text-xl font-semibold text-black mb-2">{{ vaga.titulo }}</h3>
+          <p class="text-gray-600 mb-1">Local: {{ vaga.local }}</p>
+          <p class="text-gray-600 mb-1">Status: <span [class]="{'text-green-600': vaga.status === 'Ativo', 'text-red-600': vaga.status === 'Encerrado'}">{{ vaga.status }}</span></p>
+          <p class="text-gray-600 mb-4">Candidatos: {{ vaga.candidatos }}</p>
+          <button class="mt-auto bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Gerenciar</button>
+        </div>
+      </div>
+      <button class="mt-4 bg-primary text-white py-2 px-6 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Publicar Nova Vaga</button>
+    </div>
+  </div>
+  

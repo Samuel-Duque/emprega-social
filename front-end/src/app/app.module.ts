@@ -11,10 +11,12 @@ import { HttpErrorInterceptorService } from './core/interceptors/http-error.inte
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenHttpInterceptor } from './core/interceptors/token-http.interceptor';
+import { DashboardEmpresaComponent } from './modules/dashboard-empresa/dashboard-empresa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardEmpresaComponent,
   ],
   imports: [
     BrowserModule,

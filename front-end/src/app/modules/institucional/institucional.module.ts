@@ -18,7 +18,8 @@ import { VisualizarVagaComponent } from './pages/vagas/visualizar-vaga/visualiza
     QualificacoesComponent,
     PerfilCandidatoComponent,
     TestesComponent,
-    VisualizarVagaComponent
+    VisualizarVagaComponent,
+    
   ],
   imports: [
     InstitucionalRoutingModule,

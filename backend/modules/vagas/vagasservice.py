@@ -14,7 +14,7 @@ class VagasService:
   @staticmethod
   async def obter_vagas(search: VagaSearch, supabase: Client):
     try:
-        data = supabase.table('vagas').select('id, titulo, tipo, data_publicacao, estado, cidade, tbm_pcd, modelo_trabalho').eq('status', 'Publicada')
+        data = supabase.table('vagas').select('id, titulo, tipo, data_publicacao, estado, cidade, tbm_pcd, modelo_trabalho, empresa:id_empresa (logotipo_url, nome)').eq('status', 'Publicada')
         
         if search.tipoVaga:
           data = data.eq('tipo', search.tipoVaga)
@@ -36,13 +36,13 @@ class VagasService:
     return data
   
   @staticmethod
-  async def obter_vaga(estado: str, cidade: str, supabase: Client):
+  async def obter_vaga(id: str, supabase: Client):
 
     try:
-      data = supabase.table("vagas").select("*").eq("estado", estado).eq("cidade", cidade).execute()
+      data = supabase.table("vagas").select("*, empresa:id_empresa (logotipo_url, nome)").eq("id", id).single().execute()
     except Exception as e:
       print(e)
-      raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar obter a vaga")
+      raise HTTPException(status_code=status.HTTP_200_OK, detail="Ocorreu um erro ao tentar obter a vaga")
     return data
   
   @staticmethod

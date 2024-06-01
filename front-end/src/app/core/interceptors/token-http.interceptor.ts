@@ -6,6 +6,7 @@ import {
   HttpEvent,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../assets/environments/environment';
 
 @Injectable()
 export class TokenHttpInterceptor implements HttpInterceptor {
@@ -15,8 +16,15 @@ export class TokenHttpInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = true;
+
+    const isEmpregaSocial = request.url.includes(environment.apiBaseUrl);
+
+    if (!isEmpregaSocial) {
+      return next.handle(request);
+    }
+
     request = request.clone({
+
       withCredentials: true,
       setHeaders: {
         'Content-Type': 'application/json',

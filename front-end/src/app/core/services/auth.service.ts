@@ -11,14 +11,14 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   signIn(data: Login): Observable<any> {
-    return this.http.post(environment.apiUrl + '/auth/login', data)
+    return this.http.post(environment.apiBaseUrl + '/auth/login', data)
   }
 
   verifySession(): Observable<any> {
-    return this.http.get(environment.apiUrl + '/auth/verify')
+    return this.http.get(environment.apiBaseUrl + '/auth/verify')
   }
 
   logout(): Observable<any> {
-    return this.http.get(environment.apiUrl + '/auth/logout')
+    return this.http.get(environment.apiBaseUrl + '/auth/logout')
   }
 }

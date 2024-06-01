@@ -6,12 +6,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '@app/core/services/auth.service';
 import { ErrorResponse } from '@app/shared/interfaces/error';
 import {
   Login,
   LoginResponse,
 } from '@shared/interfaces/login';
-import { AuthService } from '@shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, first, takeUntil } from 'rxjs';
 
@@ -68,7 +68,6 @@ export class LoginComponent implements OnInit, OnDestroy {
             if ('error_message' in response) {
               this.isLoginError = true;
             } else {
-              // this.tokenService.setTokens(response.access_token, response.refresh_token);
               // this.toast.success('Login efetuado com sucesso', 'Sucesso');
               this.route.navigate(['/auth/verify']);
             }

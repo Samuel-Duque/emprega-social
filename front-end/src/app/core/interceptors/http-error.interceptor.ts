@@ -54,11 +54,11 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
             case 201:
               break;
             case 401: //login
-              this.router.navigateByUrl('/auth/login');
+              // this.router.navigateByUrl('/auth/login');
               handled = true;
               break;
             case 403: //forbidden
-              this.router.navigateByUrl('/auth/login');
+              // this.router.navigateByUrl('/auth/login');
               handled = true;
               break;
             default:

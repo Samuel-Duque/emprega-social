@@ -64,9 +64,9 @@
         class="bg-white rounded-lg cursor-pointer shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
 
         <div class="flex items-center mb-2">
-          <img src="https://d3gcmglegmnvz8.cloudfront.net/logo/logo_fc.svg" alt="Empresa"
-            class="w-8 h-8 rounded-full mr-3 object-contain object-center">
-          <p class="text-gray-500 font-flight">Ferreira Costa</p>
+          <img [src]="item.logo" alt="Empresa"
+            class="w-8 h-8 bg-gray-50 rounded-full mr-3 object-contain object-center">
+          <p class="text-gray-500  font-flight">{{item.empresa}}</p>
         </div>
 
         <h3 class="text-base font-semibold mb-6 leading-tight h-12">{{item.titulo}}</h3>

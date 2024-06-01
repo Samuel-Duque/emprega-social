@@ -4,6 +4,7 @@ import { GestaoComponent } from './gestao.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { VagasComponent } from './pages/vagas/vagas.component';
 import { CriarVagaComponent } from './pages/vagas/criar-vaga/criar-vaga.component';
+import { DashboardEmpresaComponent } from '../dashboard-empresa/dashboard-empresa.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,11 @@ const routes: Routes = [
         path: 'vagas',
         component: VagasComponent,
       },
-      
+      {
+        path: 'dashboard-empresa',
+        component: DashboardEmpresaComponent
+      }
+
     ],
   },
   {

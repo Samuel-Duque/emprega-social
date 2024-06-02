@@ -5,6 +5,7 @@ import { ErrorResponse } from '@app/shared/interfaces/error';
 import { VerifySession } from '@app/shared/interfaces/verifySession';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, first, takeUntil } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-verify',
@@ -15,7 +16,7 @@ export class VerifyComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any> = new Subject<any>();
   private redirect: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute, private toast: ToastrService, private authService: AuthService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private toast: ToastrService, private authService: AuthService) { }
 
   ngOnInit() {
     this.verifyInfos();
@@ -34,13 +35,17 @@ export class VerifyComponent implements OnInit, OnDestroy {
             this.toast.error(response.error_message, 'Erro')
           } else {
             const redirect = response.redirect
+            // Sobrescreve a rota de redirecionamento caso tenha sido passada por parâmetro
+            this.location.replaceState(`/`);
             this.router.navigate([redirect]);
             this.authService.setRole(response.role);
           }
         },
         error: (error) => {
           const redirect = this.redirect ? this.redirect : 'login';
-          this.router.navigate([`/auth/${redirect}`]);
+          // this.router.navigate([`/auth/${redirect}`]);
+          this.location.replaceState(`/`);
+          this.router.navigateByUrl(`/auth/${redirect}`);
         },
       })
   }

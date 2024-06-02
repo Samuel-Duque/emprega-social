@@ -1,16 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-profissional',
   templateUrl: './cadastro-profissional.component.html',
   styleUrls: ['./cadastro-profissional.component.css']
 })
-export class CadastroProfissionalComponent {
-  // currentStep$ = this.cadastroService.getCurrentStep();
-  cadastroForm: FormGroup;
+export class CadastroProfissionalComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) {
+  // @HostListener('window:beforeunload', ['$event'])
+  // unloadNotification($event: any) {
+  //   console.log('Handler for the `window:beforeunload` event');
+
+  //   $event.returnValue = true;
+  // }
+
+  cadastroForm!: FormGroup;
+  step: number = 0;
+
+  constructor(private fb: FormBuilder, private router: Router) { }
+
+  ngOnInit(): void {
+    this.createForm();
+  }
+
+  private createForm() {
     this.cadastroForm = this.fb.group({
       name: ['', Validators.required],
       dataNascimento: ['', Validators.required],
@@ -23,7 +38,7 @@ export class CadastroProfissionalComponent {
   }
 
   onComecar() {
-    // this.cadastroService.nextStep();
+    this.step = 1;
   }
 
   get password() {
@@ -49,4 +64,15 @@ export class CadastroProfissionalComponent {
   hasSpecialChar() {
     return /[!@#$%^&*(),.?":{}|<>]/.test(this.password?.value);
   }
+
+    // Toda vez que é passado é colocado no parametro da url o proximo passo
+    atualizarContinuar() {
+      this.step++;
+      this.router.navigate([], { queryParams: { passo: this.step } });
+    }
+
+    voltarPasso() {
+      this.step--;
+      this.router.navigate([], { queryParams: { passo: this.step } });
+    }
 }

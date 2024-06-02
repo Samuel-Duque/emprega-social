@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CadastroService } from '../cadastro.service';
 
 @Component({
   selector: 'app-cadastro-profissional',
@@ -8,10 +7,10 @@ import { CadastroService } from '../cadastro.service';
   styleUrls: ['./cadastro-profissional.component.css']
 })
 export class CadastroProfissionalComponent {
-  currentStep$ = this.cadastroService.getCurrentStep();
+  // currentStep$ = this.cadastroService.getCurrentStep();
   cadastroForm: FormGroup;
 
-  constructor(private cadastroService: CadastroService, private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {
     this.cadastroForm = this.fb.group({
       name: ['', Validators.required],
       dataNascimento: ['', Validators.required],
@@ -24,7 +23,7 @@ export class CadastroProfissionalComponent {
   }
 
   onComecar() {
-    this.cadastroService.nextStep();
+    // this.cadastroService.nextStep();
   }
 
   get password() {

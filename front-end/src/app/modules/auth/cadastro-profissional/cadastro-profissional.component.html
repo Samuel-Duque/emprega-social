@@ -1,137 +1,224 @@
 <!-- Header -->
-<nav class="bg-white border-b-2 border-cgray-light">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <div class="items-center justify-center flex w-auto" id="navbar-cta">
-      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="assets/icons/logotipo.svg" class="h-12.5" alt="Logo Emprega Social" />
+<div class="max-w-full h-screen">
+
+  <nav class="bg-white border-b-2 border-cgray-light">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-3">
+
+      <div class="items-center justify-center flex">
+        <a href="/" class="flex items-center">
+          <img src="assets/icons/logotipo.svg" class="h-12.5" alt="Logo Emprega Social" />
+        </a>
+        <span class="font-medium text-lg border-l-2 border-l-secondary px-4 ml-5 text-secondary">Cadastro</span>
+      </div>
+
+      <a href="/"
+        class="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer justify-center sm:flex w-auto hover:bg-red-100 p-2 rounded-lg">
+        <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M10.3318 3.77614C10.3318 1.96734 11.7493 0.5 13.4968 0.5H27.8373C28.6763 0.500612 29.4808 0.846045 30.0738 1.46037C30.6669 2.0747 31.0001 2.90765 31.0001 3.77614V29.2239C31.0001 30.0927 30.6666 30.926 30.0731 31.5404C29.4795 32.1548 28.6745 32.5 27.8351 32.5H16.9136C17.0852 32.0063 17.1811 31.4733 17.1811 30.9196V26.7252C17.1811 26.5337 17.1722 26.3446 17.1588 26.1554C17.5466 26.2269 17.9434 26.2638 18.3423 26.2638H21.4003C22.4734 26.2638 23.5104 25.8632 24.321 25.1354C25.1317 24.4077 25.6615 23.4017 25.8133 22.3021C25.965 21.2025 25.7285 20.0832 25.1472 19.1496C24.5658 18.216 23.6786 17.5308 22.6485 17.2198C23.3666 16.5256 23.9211 15.6701 24.2693 14.7191C24.6176 13.7682 24.7504 12.7471 24.6573 11.7347C24.5643 10.7222 24.248 9.74537 23.7328 8.87941C23.2175 8.01344 22.5171 7.28146 21.6855 6.73985C20.8539 6.19824 19.9133 5.86146 18.9361 5.75545C17.959 5.64944 16.9713 5.77703 16.0493 6.12839C15.1273 6.47976 14.2955 7.04552 13.618 7.78208C12.9405 8.51865 12.4354 9.40637 12.1416 10.3769C11.5654 10.1233 10.9577 9.95478 10.3362 9.87621V3.77614H10.3318ZM14.6335 12.3633C14.6335 11.3659 15.0163 10.4094 15.6976 9.70413C16.3789 8.99888 17.303 8.60267 18.2666 8.60267C19.2301 8.60267 20.1542 8.99888 20.8355 9.70413C21.5168 10.4094 21.8996 11.3659 21.8996 12.3633C21.8996 13.3607 21.5168 14.3172 20.8355 15.0225C20.1542 15.7277 19.2301 16.1239 18.2666 16.1239C17.303 16.1239 16.3789 15.7277 15.6976 15.0225C15.0163 14.3172 14.6335 13.3607 14.6335 12.3633ZM14.8185 16.1009L14.823 16.1078L18.144 19.5454C18.1699 19.5725 18.2008 19.594 18.2349 19.6087C18.2689 19.6233 18.3055 19.6309 18.3423 19.6308H21.3981C21.9153 19.6308 22.4114 19.8435 22.7771 20.2221C23.1429 20.6006 23.3484 21.1141 23.3484 21.6495C23.3484 22.1849 23.1429 22.6984 22.7771 23.077C22.4114 23.4556 21.9153 23.6683 21.3981 23.6683H18.3423C17.2346 23.6683 16.1714 23.2138 15.3869 22.4017L13.4388 20.3852L11.8563 22.0233L13.4477 23.666C14.2301 24.4781 14.6714 25.5786 14.6714 26.7252V30.3428C14.6714 30.8782 14.4659 31.3917 14.1002 31.7703C13.7344 32.1489 13.2384 32.3616 12.7211 32.3616C12.2039 32.3616 11.7078 32.1489 11.3421 31.7703C10.9763 31.3917 10.7709 30.8782 10.7709 30.3428V26.7252C10.7704 26.6489 10.7408 26.5759 10.6884 26.5222L9.07248 24.8472C8.34557 25.4189 7.45783 25.7284 6.54494 25.7285H2.05377C1.53653 25.7285 1.04048 25.5159 0.674733 25.1373C0.308989 24.7587 0.103516 24.2452 0.103516 23.7098C0.103516 23.1744 0.308989 22.6609 0.674733 22.2823C1.04048 21.9037 1.53653 21.6911 2.05377 21.6911H6.54494C6.58182 21.6911 6.61834 21.6836 6.65239 21.669C6.68644 21.6543 6.71735 21.6328 6.74331 21.6057L10.6795 17.529L9.72553 16.5438C9.67364 16.4896 9.60311 16.4589 9.52939 16.4585H5.47731C4.96007 16.4585 4.46402 16.2458 4.09827 15.8672C3.73253 15.4886 3.52705 14.9751 3.52705 14.4397C3.52705 13.9043 3.73253 13.3908 4.09827 13.0123C4.46402 12.6337 4.96007 12.421 5.47731 12.421H9.53162C10.6394 12.421 11.7025 12.8778 12.4849 13.6899L14.8118 16.0962L14.8185 16.1009Z"
+            fill="#FF2828" />
+        </svg>
+        <span class="font-medium hidden sm:block text-erro">Desistir do cadastro</span>
       </a>
-      <span class="font-medium text-lg border-l-2 border-l-secondary px-4 py-1 ml-5 text-secondary">Cadastro</span>
     </div>
-    <div class="items-center justify-center hidden sm:flex w-auto hover:bg-cgray-light p-2 rounded-lg">
-      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="assets/icons/icone-sair.svg" class="h-12.5 px-2" alt="Logo Emprega Social" />
-        <span class="font-medium text-erro text-lg">Desistir do cadastro</span>
-      </a>
+  </nav>
+
+  <div class="w-full max-w-screen-lg m-auto p-4 flex flex-col">
+
+    <ol class="flex items-center mt-5">
+      <li
+        class="flex w-full items-center text-primary after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-800">
+        <span
+          class="flex items-center border-[3px] border-primary  justify-center w-10 h-10 bg-white rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0">
+          <svg class="w-3.5 h-3.5 text-green-500 lg:w-4 lg:h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 16 12">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5.917 5.724 10.5 15 1.5" />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
+        <span
+          class="flex items-center justify-center w-10 h-10 border-[3px] border-gray-500 bg-white rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+          <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+            <path
+              d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
+        <span
+          class="flex items-center justify-center w-10 h-10 border-[3px] border-gray-500 bg-white rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+          <svg class="w-4 h-4 text-gray-500 lg:w-6 lg:h-6 dark:text-gray-100" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M9 2.22117V7H4.22117C4.31517 6.81709 4.43766 6.64812 4.58579 6.5L8.5 2.58579C8.64812 2.43766 8.81709 2.31517 9 2.22117ZM11 2V7C11 8.10457 10.1046 9 9 9H4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V4C20 2.89543 19.1046 2 18 2H11ZM8 16C8 15.4477 8.44772 15 9 15H15C15.5523 15 16 15.4477 16 16C16 16.5523 15.5523 17 15 17H9C8.44772 17 8 16.5523 8 16ZM9 11C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13H15C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11H9Z"
+              fill="rgb(107 114 128 / var(--tw-text-opacity))" />
+          </svg>
+
+        </span>
+      </li>
+      <li class="flex items-center">
+        <span
+          class="flex items-center justify-center w-10 h-10 border-[3px] border-gray-500 bg-white rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+          <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+            <path
+              d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z" />
+          </svg>
+        </span>
+      </li>
+    </ol>
+
+    <div class="bg-gray-50 shadow-lg w-full  mt-6">
+      <div class="p-32 text-center">
+        <h2 class="text-2xl font-bold mb-4">Vamos lá cadastrar?</h2>
+        <p class="text-gray-700 mb-6">Para realizar o cadastro na plataforma deve ser seguido</p>
+        <button
+          class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300"
+          (click)="onComecar()">Começar</button>
+      </div>
     </div>
   </div>
-</nav>
+
+</div>
+
 <!-- Fim do header (Cadastro) -->
 
-<!-- Desenho das etapas  -->
-<div class="flex flex-col items-center justify-center p-10" id="body">
-  <ol class="flex items-center w-2/3">
-    <li class="flex w-full items-center text-green-600 after:content-[''] after:w-full after:h-1 after:border-b after:border-green-100 after:border-4 after:inline-block">
-      <span class="flex items-center justify-center w-10 h-10 bg-green-100 rounded-full lg:h-12 lg:w-12 shrink-0">
-        <svg class="w-3.5 h-3.5 text-green-600 lg:w-4 lg:h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-          <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
-        </svg>
-      </span>
-      <span class="ml-2 text-gray-900 font-medium">Início</span>
-    </li>
-    <li class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block">
-      <span class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 shrink-0">
-        <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-          <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0-2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0-2Z" />
-        </svg>
-      </span>
-      <span class="ml-2 text-gray-500 font-medium">Cadastro</span>
-    </li>
-    <li class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block">
-      <span class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 shrink-0">
-        <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-          <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0-2Z" />
-        </svg>
-      </span>
-      <span class="ml-2 text-gray-500 font-medium">Perguntas</span>
-    </li>
-    <li class="flex items-center ">
-      <span class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12">
-        <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-          <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z" />
-        </svg>
-      </span>
-      <span class="ml-2 text-gray-500 font-medium">Pronto</span>
-    </li>
-  </ol>
+<!-- Desenho das etapas -->
+<!-- <div class="flex flex-col items-center justify-center p-10" id="body">
 
-  <!-- Conteúdo Principal -->
-  <div class="flex flex-col items-center justify-center p-10" id="body">
-    <!-- Mostra as etapas com base no estado atual -->
-    <div *ngIf="currentStep$ | async as step">
-      <!-- Etapa 1: Introdução -->
-      <div *ngIf="step === 1">
-        <div class="bg-gray-50 rounded-xl p-32 shadow-lg w-full max-w-2xl text-center">
-          <h2 class="text-2xl font-bold mb-4">Vamos lá cadastrar?</h2>
-          <p class="text-gray-700 mb-6">Para realizar o cadastro na plataforma deve ser seguido</p>
-          <button class="bg-green-600 text-white py-2 px-4 rounded-lg shadow hover:bg-green-700 transition-colors duration-300"
-                  (click)="onComecar()">Começar</button>
-        </div>
-      </div>
+  <ol class="flex items-center w-full">
+    <li class="flex w-full items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-800">
+        <span class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0">
+            <svg class="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+            </svg>
+        </span>
+    </li>
+    <li class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
+        <span class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+            <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z"/>
+            </svg>
+        </span>
+    </li>
+    <li class="flex items-center w-full">
+        <span class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+            <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z"/>
+            </svg>
+        </span>
+    </li>
+</ol> -->
 
-      <!-- Etapa 2: Formulário de Cadastro -->
-      <div *ngIf="step === 2">
-        <form [formGroup]="cadastroForm" class="grid md:grid-cols-2 md:gap-6 md:gap-x-28 mx-auto">
-          <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome completo</label>
-            <input type="text" id="name" formControlName="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light" placeholder="Digite seu nome completo" required />
-          </div>
-          <div class="mb-5">
-            <label for="data-nascimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data de nascimento</label>
-            <input type="text" id="data-nascimento" formControlName="dataNascimento" placeholder="dd/mm/aaaa" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light" required />
-          </div>
-          <div class="mb-5">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seu email</label>
-            <input type="email" id="email" formControlName="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light" placeholder="Digite seu email" required />
-          </div>
-          <div class="mb-5">
-            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Celular</label>
-            <input type="tel" id="phone" formControlName="phone" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light" placeholder="(99) 99999-9999" required />
-          </div>
-          <div class="mb-5">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sua senha</label>
-            <input type="password" id="password" formControlName="password" (input)="password?.updateValueAndValidity()" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light" required />
-            <!-- Requerimento senha -->
-            <h3 class="mt-6 mb-2 text-lg font-semibold text-gray-900 dark:text-white">É necessário:</h3>
-            <ul class="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
-              <li [ngClass]="{'text-green-600': hasMinLength(), 'text-gray-500': !hasMinLength()}" class="flex items-center">
-                <svg [ngClass]="{'text-green-600': hasMinLength(), 'text-gray-500': !hasMinLength()}" class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                </svg>
-                Pelo menos 6 caracteres
-              </li>
-              <li [ngClass]="{'text-green-600': hasUpperCase(), 'text-gray-500': !hasUpperCase()}" class="flex items-center">
-                <svg [ngClass]="{'text-green-600': hasUpperCase(), 'text-gray-500': !hasUpperCase()}" class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                </svg>
-                Uma letra maiúscula
-              </li>
-              <li [ngClass]="{'text-green-600': hasSpecialChar(), 'text-gray-500': !hasSpecialChar()}" class="flex items-center">
-                <svg [ngClass]="{'text-green-600': hasSpecialChar(), 'text-gray-500': !hasSpecialChar()}" class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                </svg>
-                Um caractere especial (!&#64;#$%^&*)
-              </li>
-            </ul>
-            <!-- Fim requerimento senha -->
-          </div>
-          <div class="mb-5">
-            <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme a senha</label>
-            <input type="password" id="repeat-password" formControlName="repeatPassword" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light" required />
-            <span *ngIf="!checkPasswordMatch() && repeatPassword?.touched" class="text-erro font-medium">As senhas não correspondem.</span>
-            <span *ngIf="checkPasswordMatch() && repeatPassword?.touched" class="text-primary-hover font-medium">As senhas correspondem.</span>
-          </div>
 
-          <!-- Checkbox termos -->
-          <div class="flex items-start mb-5">
-            <div class="flex items-center h-5">
-              <input id="terms" type="checkbox" formControlName="terms" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
-            </div>
-            <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Eu concordo com os <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">termos e condições</a></label>
-          </div>
-          <!-- Fim checkbox -->
-          <button type="submit" class="text-white bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Criar nova conta</button>
-        </form>
+<!-- <div class="flex flex-col items-center justify-center p-10" id="body">
+  <div *ngIf="true">
+    <div *ngIf="1 === 1">
+      <div class="bg-gray-50 rounded-xl p-32 shadow-lg w-full max-w-2xl text-center">
+        <h2 class="text-2xl font-bold mb-4">Vamos lá cadastrar?</h2>
+        <p class="text-gray-700 mb-6">Para realizar o cadastro na plataforma deve ser seguido</p>
+        <button
+          class="bg-green-600 text-white py-2 px-4 rounded-lg shadow hover:bg-green-700 transition-colors duration-300"
+          (click)="onComecar()">Começar</button>
       </div>
     </div>
+
+    <div *ngIf="2 === 2">
+      <form [formGroup]="cadastroForm" class="grid md:grid-cols-2 md:gap-6 md:gap-x-28 mx-auto">
+        <div class="mb-5">
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome completo</label>
+          <input type="text" id="name" formControlName="name"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
+            placeholder="Digite seu nome completo" required />
+        </div>
+        <div class="mb-5">
+          <label for="data-nascimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data de
+            nascimento</label>
+          <input type="text" id="data-nascimento" formControlName="dataNascimento" placeholder="dd/mm/aaaa"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
+            required />
+        </div>
+        <div class="mb-5">
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seu email</label>
+          <input type="email" id="email" formControlName="email"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
+            placeholder="Digite seu email" required />
+        </div>
+        <div class="mb-5">
+          <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Celular</label>
+          <input type="tel" id="phone" formControlName="phone"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
+            placeholder="(99) 99999-9999" required />
+        </div>
+        <div class="mb-5">
+          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sua senha</label>
+          <input type="password" id="password" formControlName="password" (input)="password?.updateValueAndValidity()"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
+            required />
+          <h3 class="mt-6 mb-2 text-lg font-semibold text-gray-900 dark:text-white">É necessário:</h3>
+          <ul class="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
+            <li [ngClass]="{'text-green-600': hasMinLength(), 'text-gray-500': !hasMinLength()}"
+              class="flex items-center">
+              <svg [ngClass]="{'text-green-600': hasMinLength(), 'text-gray-500': !hasMinLength()}"
+                class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>
+              Pelo menos 6 caracteres
+            </li>
+            <li [ngClass]="{'text-green-600': hasUpperCase(), 'text-gray-500': !hasUpperCase()}"
+              class="flex items-center">
+              <svg [ngClass]="{'text-green-600': hasUpperCase(), 'text-gray-500': !hasUpperCase()}"
+                class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>
+              Uma letra maiúscula
+            </li>
+            <li [ngClass]="{'text-green-600': hasSpecialChar(), 'text-gray-500': !hasSpecialChar()}"
+              class="flex items-center">
+              <svg [ngClass]="{'text-green-600': hasSpecialChar(), 'text-gray-500': !hasSpecialChar()}"
+                class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>
+              Um caractere especial (!&#64;#$%^&*)
+            </li>
+          </ul>
+        </div>
+        <div class="mb-5">
+          <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme a
+            senha</label>
+          <input type="password" id="repeat-password" formControlName="repeatPassword"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
+            required />
+          <span *ngIf="!checkPasswordMatch() && repeatPassword?.touched" class="text-erro font-medium">As senhas não
+            correspondem.</span>
+          <span *ngIf="checkPasswordMatch() && repeatPassword?.touched" class="text-primary-hover font-medium">As senhas
+            correspondem.</span>
+        </div>
+
+        <div class="flex items-start mb-5">
+          <div class="flex items-center h-5">
+            <input id="terms" type="checkbox" formControlName="terms"
+              class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+              required />
+          </div>
+          <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Eu concordo com os <a
+              href="#" class="text-blue-600 hover:underline dark:text-blue-500">termos e condições</a></label>
+        </div>
+        <button type="submit"
+          class="text-white bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Criar
+          nova conta</button>
+      </form>
+    </div>
   </div>
-</div>
+</div> -->

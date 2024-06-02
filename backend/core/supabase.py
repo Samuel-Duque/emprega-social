@@ -30,6 +30,12 @@ async def supabase_session(request: Request):
     if not access_token or not refresh_token:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Não foi encontrado tokens de sessão")
     try:
+        jwt.decode(
+                access_token,
+                settings.supabase_jwt_secret,
+                algorithms=["HS256"],
+                options={"verify_aud": False, "verify_signature": True},
+            )
         supabase.auth.set_session(access_token, refresh_token)
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token de sessão inválido")

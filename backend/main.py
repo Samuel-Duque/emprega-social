@@ -22,7 +22,7 @@ app = FastAPI(
 origins = [
     "http://127.0.0.1:4200",
     "http://localhost:4200",
-    
+    "https://emprega-social.vercel.app"
 ]
 
 app.add_middleware(

@@ -25,6 +25,13 @@ const routes: Routes = [
     data: { roles: ['prefeitura', 'empresa'] },
   },
   {
+    path: 'candidato',
+    loadChildren: () =>
+      import('./modules/candidato/candidato.module').then(
+        (m) => m.CandidatoModule
+      ),
+  },
+  {
     path: '404',
     component: Erro404Component,
   },

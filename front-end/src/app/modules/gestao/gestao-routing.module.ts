@@ -5,6 +5,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { VagasComponent } from './pages/vagas/vagas.component';
 import { CriarVagaComponent } from './pages/vagas/criar-vaga/criar-vaga.component';
 import { DashboardEmpresaComponent } from '../dashboard-empresa/dashboard-empresa.component';
+import { ParaEmpresasComponent } from './pages/para-empresas/para-empresas.component';
 
 const routes: Routes = [
   {

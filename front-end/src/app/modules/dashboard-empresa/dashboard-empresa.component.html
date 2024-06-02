@@ -1,46 +1,67 @@
-<div class="container mx-auto pt-24 p-4 sm:p-8 md:p-20 xl:px-40 ">
+<div class="container max-w-screen-xl mx-auto w-full p-4 mt-10 font-regular">
     <!-- Seção de Boas-vindas -->
     <div class="bg-white rounded-lg shadow p-6 mb-8 flex items-center justify-between">
       <div class="flex items-center">
-        <img [src]="empresa.logo" alt="Logo da {{ empresa.nome }}" class="w-20 h-20 object-cover object-center rounded-full mr-6">
+        <img src="/assets/images/logo-empresa.png" alt="Logo da Empresa" class="w-20 h-20 object-cover object-center rounded-full mr-6">
         <div>
-          <h1 class="text-3xl font-bold text-black">Bem-vindo(a), {{ empresa.nome }}</h1>
+          <h1 class="text-3xl font-bold text-black">Bem-vindo(a) à sua Dashboard</h1>
           <p class="text-gray-600">Gerencie suas oportunidades de emprego e candidaturas.</p>
         </div>
       </div>
+      <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Publicar Nova Vaga</button>
     </div>
   
-    <!-- Seção de Oportunidades e Candidaturas -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+    <!-- Seção de Estatísticas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
       <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
         <div>
-          <h2 class="text-2xl font-bold text-black">{{ empresa.vagas }}</h2>
-          <p class="text-gray-600">Vagas criadas</p>
+          <h2 class="text-2xl font-bold text-black">12</h2>
+          <p class="text-gray-600">Vagas Ativas</p>
         </div>
-        <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">VER</button>
+        <svg class="w-10 h-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
       </div>
       <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
         <div>
-          <h2 class="text-2xl font-bold text-black">{{ empresa.candidaturas }}</h2>
-          <p class="text-gray-600">Candidaturas</p>
+          <h2 class="text-2xl font-bold text-black">34</h2>
+          <p class="text-gray-600">Candidaturas Recebidas</p>
         </div>
-        <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">VER</button>
+        <svg class="w-10 h-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 6h18M3 14h18M3 18h18"/>
+        </svg>
+      </div>
+      <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-black">7</h2>
+          <p class="text-gray-600">Entrevistas Agendadas</p>
+        </div>
+        <svg class="w-10 h-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12l2 2 4-4M9 10H5V5h10v5h-4M8 3h4"/>
+        </svg>
       </div>
     </div>
   
-    <!-- Seção de Vagas -->
+    <!-- Seção de Vagas Publicadas -->
     <div class="bg-white rounded-lg shadow p-6 mb-8">
       <h2 class="text-2xl font-bold text-black mb-4">Vagas Publicadas</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div *ngFor="let vaga of vagas" class="bg-gray-100 rounded-lg p-4 flex flex-col">
-          <h3 class="text-xl font-semibold text-black mb-2">{{ vaga.titulo }}</h3>
-          <p class="text-gray-600 mb-1">Local: {{ vaga.local }}</p>
-          <p class="text-gray-600 mb-1">Status: <span [class]="{'text-green-600': vaga.status === 'Ativo', 'text-red-600': vaga.status === 'Encerrado'}">{{ vaga.status }}</span></p>
-          <p class="text-gray-600 mb-4">Candidatos: {{ vaga.candidatos }}</p>
-          <button class="mt-auto bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Gerenciar</button>
+        <div class="bg-gray-50 rounded-lg p-4 flex flex-col justify-between">
+          <h3 class="text-xl font-semibold text-black mb-2">Desenvolvedor Full Stack</h3>
+          <p class="text-gray-600 mb-2">Remoto</p>
+          <p class="text-gray-600 mb-2">Status: <span class="text-green-600">Ativo</span></p>
+          <p class="text-gray-600 mb-4">Candidatos: 10</p>
+          <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Gerenciar</button>
         </div>
+        <div class="bg-gray-50 rounded-lg p-4 flex flex-col justify-between">
+          <h3 class="text-xl font-semibold text-black mb-2">Analista de Dados</h3>
+          <p class="text-gray-600 mb-2">São Paulo, SP</p>
+          <p class="text-gray-600 mb-2">Status: <span class="text-red-600">Encerrado</span></p>
+          <p class="text-gray-600 mb-4">Candidatos: 25</p>
+          <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Gerenciar</button>
+        </div>
+        <!-- Adicione mais cards de vagas conforme necessário -->
       </div>
-      <button class="mt-4 bg-primary text-white py-2 px-6 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Publicar Nova Vaga</button>
     </div>
   </div>
   

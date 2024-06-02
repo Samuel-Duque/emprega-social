@@ -12,11 +12,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenHttpInterceptor } from './core/interceptors/token-http.interceptor';
 import { DashboardEmpresaComponent } from './modules/dashboard-empresa/dashboard-empresa.component';
+import { ParaEmpresasComponent } from './modules/gestao/pages/para-empresas/para-empresas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardEmpresaComponent,
+    ParaEmpresasComponent,
   ],
   imports: [
     BrowserModule,

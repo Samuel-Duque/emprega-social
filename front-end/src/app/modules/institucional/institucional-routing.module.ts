@@ -8,6 +8,7 @@ import { PerfilCandidatoComponent } from './pages/perfil-candidato/perfil-candid
 import { TestesComponent } from './pages/testes/testes.component';
 import { VisualizarVagaComponent } from './pages/vagas/visualizar-vaga/visualizar-vaga.component';
 import { DashboardEmpresaComponent } from '../dashboard-empresa/dashboard-empresa.component';
+import { ParaEmpresasComponent } from '../gestao/pages/para-empresas/para-empresas.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardEmpresaComponent,
       },
+      {
+        path: 'para-empresas',
+        component: ParaEmpresasComponent,
+      }
     ],
   },
   {

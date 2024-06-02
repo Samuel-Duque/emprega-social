@@ -6,13 +6,15 @@ import { LoginComponent } from './login/login.component';
 import { VerifyComponent } from './verify/verify.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenHttpInterceptor } from '@app/core/interceptors/token-http.interceptor';
+import { CadastroProfissionalComponent } from './cadastro-profissional/cadastro-profissional.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    VerifyComponent
+    VerifyComponent,
+    CadastroProfissionalComponent
   ],
   imports: [
     CommonModule,

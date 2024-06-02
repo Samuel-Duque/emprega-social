@@ -38,6 +38,7 @@ async def supabase_session(request: Request):
             )
         supabase.auth.set_session(access_token, refresh_token)
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token de sessão inválido")
     else:
         return supabase

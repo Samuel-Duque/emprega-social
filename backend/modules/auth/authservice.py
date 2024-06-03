@@ -35,9 +35,18 @@ class AuthService:
 
     try:
       data = supabase.auth.sign_up({"email": request.email, "password": request.password})
-      return {"access_token": data.session.access_token, "refresh_token": data.session.refresh_token, "role": "A"}
+      supabase.table("usuarios").insert({"id": data.user.id, "nome": request.name, "sobrenome": request.lastName, "data_nascimento": request.dataNascimento}).execute()
+
+      token = data.session.access_token
+      refresh_token = data.session.refresh_token
+      
+      response = JSONResponse(content={"message": "Register efetuado com sucesso!"})
+      response.set_cookie(key="access_token", value=token, httponly=True, secure=True, samesite="None")
+      response.set_cookie(key="refresh_token", value=refresh_token, httponly=True, secure=True, samesite="None")
+      return response
     except Exception as e:
-      Response(status_code=status.HTTP_200_OK, content=json.dumps({"error_message": "Ocorreu um erro ao tentar se registrar: " + str(e)}))
+      print(e)
+      return Response(status_code=status.HTTP_200_OK, content=json.dumps({"error_message": "Ocorreu um erro ao tentar se registrar: " + str(e)}))
 
     
   @staticmethod
@@ -80,7 +89,8 @@ class AuthService:
         case 'candidato':
           return {"message": "Informações válidas!", "role": regra, "redirect": "/candidato"}
         case _:
-          return Response(status_code=status.HTTP_403_FORBIDDEN, content=json.dumps({"error_message": "Usuário não autorizado"}))
+          return {"message": "Informações válidas!", "role": regra, "redirect": "/candidato"}
+          # return Response(status_code=status.HTTP_403_FORBIDDEN, content=json.dumps({"error_message": "Usuário não autorizado"}))
         
     except Exception as e:
       print(e)

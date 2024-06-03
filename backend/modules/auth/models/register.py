@@ -7,5 +7,22 @@ from pydantic import BaseModel
 # pessoas com deficiência e mulheres vítimas de violência.
 
 class Register(BaseModel):
-    email: str
-    password: str
+  name: str
+  lastName: str
+  dataNascimento: str
+  email: str
+  password: str
+  terms: bool
+
+  model_config = {
+    'json_schema_extra': {
+      "example": {
+        "name": "João",
+        "lastName": "Silva",
+        "dataNascimento": "1990-01-01",
+        "email": "teste123@gmail.com",
+        "password": "123456",
+        "terms": True
+      }
+    },
+  }

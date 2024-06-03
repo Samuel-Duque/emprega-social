@@ -1,6 +1,6 @@
 <!-- Header -->
 <div class="max-w-full h-screen">
-  <nav class="bg-white border-b-2 border-cgray-light">
+  <nav class="fixed w-full bg-white border-b-2 border-cgray-light">
     <div class="max-w-screen-sm flex items-center justify-between mx-auto p-3">
       <div class="items-center justify-center flex">
         <a href="/" class="flex items-center">
@@ -22,7 +22,7 @@
   </nav>
 
   <div class="w-full max-w-screen-sm m-auto p-4 flex flex-col">
-    <div class="mt-8">
+    <div class="mt-28">
       <span class="font-medium text-primary">Candidato</span>
       <h1 class="font-semibold text-3xl">O começo de uma nova jornada</h1>
       <h2 class="text-gray-500 font-flight mt-1 pb-6 border-b-2 border-b-gray-200">
@@ -33,14 +33,14 @@
     <form [formGroup]="cadastroForm" class="(grid md:grid-cols-2 md:gap-6 md:gap-x-28) mt-6">
       <div class="mb-5">
         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
-        <input type="text" id="name" formControlName="name"
+        <input type="text" autocomplete="name" id="name" formControlName="name"
           class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
           placeholder="Insira seu primeiro nome aqui" required />
       </div>
 
       <div class="mb-5">
         <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobrenome</label>
-        <input type="text" id="lastName" formControlName="lastName"
+        <input type="text" id="lastName" autocomplete="family-name" formControlName="lastName"
           class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
           placeholder="Insira seu sobrenome aqui" required />
       </div>
@@ -55,14 +55,14 @@
 
       <div class="mb-5">
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seu email</label>
-        <input type="email" id="email" formControlName="email"
+        <input type="email" autocomplete="email" id="email" formControlName="email"
           class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
           placeholder="Digite seu email" required />
       </div>
 
       <div class="mb-5">
         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sua senha</label>
-        <input type="password" id="password" formControlName="password" (input)="password?.updateValueAndValidity()"
+        <input type="password" autocomplete="new-password" id="password" formControlName="password" (input)="password?.updateValueAndValidity()"
           class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
           required />
         <h3 class="mt-6 mb-2 text-lg font-semibold text-gray-900 dark:text-white">
@@ -116,12 +116,12 @@
       <div class="mb-5">
         <label for="repeat-password" class="block mb-2 text-sm font-medium focus:ring-primary-hover focus:border-primary text-gray-900 dark:text-white">Confirme a
           senha</label>
-        <input type="password" id="repeat-password" formControlName="repeatPassword"
-          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
+          <input type="password" autocomplete="new-password" id="repeat-password" formControlName="repeatPassword" (input)="password?.updateValueAndValidity()"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
           required />
-        <span *ngIf="!checkPasswordMatch() && repeatPassword?.touched" class="text-erro font-medium">As senhas não
+        <span *ngIf="!checkPasswordMatch() && repeatPassword?.touched" class="text-erro font-flight">As senhas não
           correspondem.</span>
-        <span *ngIf="checkPasswordMatch() && repeatPassword?.touched" class="text-primary-hover font-medium">As senhas
+        <span *ngIf="checkPasswordMatch() && repeatPassword?.touched" class="text-primary-hover font-flight">As senhas
           correspondem.</span>
       </div>
 
@@ -134,216 +134,28 @@
         <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Eu concordo com os
           <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">termos e condições</a></label>
       </div>
-      <button type="submit"
-        class="text-white mb-8 w-full md:w-auto bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-green-100 focus:border-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center ">
-        Criar nova conta
-      </button>
+
+      <button type="button" [disabled]="!cadastroForm.valid || isLoading"
+      [ngClass]="{'opacity-40 cursor-no-drop': !cadastroForm.valid, 'opacity-100 hover:bg-primary-hover': cadastroForm.valid}"
+      class="text-white flex items-center justify-center bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 w-full py-2.5 text-center"
+      (click)="register()">
+      @if (isLoading) {
+      <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-white animate-spin"
+        viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+          fill="#E5E7EB" />
+        <path
+          d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+          fill="currentColor" />
+      </svg>
+      Criando conta...
+
+      }
+      @else {
+      Cadastrar
+      }
+    </button>
     </form>
   </div>
-
-  <!-- <ol class="flex items-center mt-5">
-      <li
-        class="flex w-full items-center text-primary after:content-[''] after:w-full after:h-1 after:border-b after:border-green-100 after:border-4 after:inline-block dark:after:border-blue-800">
-        <span
-          class="flex items-center border-[3px] border-primary  justify-center w-10 h-10 bg-white rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0">
-          <svg class="w-3.5 h-3.5 text-green-500 lg:w-4 lg:h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-            fill="none" viewBox="0 0 16 12">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M1 5.917 5.724 10.5 15 1.5" />
-          </svg>
-        </span>
-      </li>
-      <li
-        class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
-        <span [ngClass]="{'border-gray-500 text-gray-500': step < 1, 'border-primary text-primary': step >= 1}"
-          class="flex items-center justify-center w-10 h-10 border-[3px] border-gray-500 bg-white rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-          <svg class="w-4 h-4 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor" viewBox="0 0 20 16">
-            <path
-              d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-          </svg>
-        </span>
-      </li>
-      <li
-        class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
-        <span
-          class="flex items-center justify-center w-10 h-10 border-[3px] border-gray-500 bg-white rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-          <svg class="w-4 h-4 text-gray-500 lg:w-6 lg:h-6 dark:text-gray-100" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M9 2.22117V7H4.22117C4.31517 6.81709 4.43766 6.64812 4.58579 6.5L8.5 2.58579C8.64812 2.43766 8.81709 2.31517 9 2.22117ZM11 2V7C11 8.10457 10.1046 9 9 9H4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V4C20 2.89543 19.1046 2 18 2H11ZM8 16C8 15.4477 8.44772 15 9 15H15C15.5523 15 16 15.4477 16 16C16 16.5523 15.5523 17 15 17H9C8.44772 17 8 16.5523 8 16ZM9 11C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13H15C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11H9Z"
-              fill="rgb(107 114 128 / var(--tw-text-opacity))" />
-          </svg>
-
-        </span>
-      </li>
-      <li class="flex items-center">
-        <span
-          class="flex items-center justify-center w-10 h-10 border-[3px] border-gray-500 bg-white rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-          <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-            <path
-              d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z" />
-          </svg>
-        </span>
-      </li>
-    </ol>
-
-    <div class="bg-gray-50 p-6 md:p-4 shadow-lg w-full  mt-6">
-
-      <!-- @switch (step) {
-      @case (0) {
-      <div class="py-52 text-center">
-        <h2 class="text-3xl font-bold mb-4">O primeiro passo para se cadastrar</h2>
-        <p class="text-gray-700 mb-6">Para realizar o cadastro na plataforma deve ser seguido</p>
-        <button
-          class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300"
-          (click)="onComecar()">Começar</button>
-      </div>
-      } @case (1) { -->
-  <!-- <div class="flex flex-col w-full md:items-center md:justify-center" id="body">
-        <h1>Preencha os campos abaixo para criar sua conta</h1>
-        <p>É rápido e fácil.</p>
-
-        <form [formGroup]="cadastroForm" class="grid md:grid-cols-2 md:gap-6 md:gap-x-28 mx-auto">
-          <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome completo</label>
-            <input type="text" id="name" formControlName="name"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
-              placeholder="Digite seu nome completo" required />
-          </div>
-          <div class="mb-5">
-            <label for="data-nascimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data de
-              nascimento</label>
-            <input type="text" id="data-nascimento" formControlName="dataNascimento" placeholder="dd/mm/aaaa"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
-              required />
-          </div>
-          <div class="mb-5">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seu email</label>
-            <input type="email" id="email" formControlName="email"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
-              placeholder="Digite seu email" required />
-          </div>
-          <div class="mb-5">
-            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Celular</label>
-            <input type="tel" id="phone" formControlName="phone"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
-              placeholder="(99) 99999-9999" required />
-          </div>
-          <div class="mb-5">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sua senha</label>
-            <input type="password" id="password" formControlName="password" (input)="password?.updateValueAndValidity()"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-hover focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
-              required />
-            <h3 class="mt-6 mb-2 text-lg font-semibold text-gray-900 dark:text-white">É necessário:</h3>
-            <ul class="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
-              <li [ngClass]="{'text-green-600': hasMinLength(), 'text-gray-500': !hasMinLength()}"
-                class="flex items-center">
-                <svg [ngClass]="{'text-green-600': hasMinLength(), 'text-gray-500': !hasMinLength()}"
-                  class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                </svg>
-                Pelo menos 6 caracteres
-              </li>
-              <li [ngClass]="{'text-green-600': hasUpperCase(), 'text-gray-500': !hasUpperCase()}"
-                class="flex items-center">
-                <svg [ngClass]="{'text-green-600': hasUpperCase(), 'text-gray-500': !hasUpperCase()}"
-                  class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                </svg>
-                Uma letra maiúscula
-              </li>
-              <li [ngClass]="{'text-green-600': hasSpecialChar(), 'text-gray-500': !hasSpecialChar()}"
-                class="flex items-center">
-                <svg [ngClass]="{'text-green-600': hasSpecialChar(), 'text-gray-500': !hasSpecialChar()}"
-                  class="icon w-3.5 h-3.5 me-2 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                </svg>
-                Um caractere especial (!&#64;#$%^&*)
-              </li>
-            </ul>
-          </div>
-          <div class="mb-5">
-            <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme a
-              senha</label>
-            <input type="password" id="repeat-password" formControlName="repeatPassword"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-hover dark:focus:border-primary dark:shadow-sm-light"
-              required />
-            <span *ngIf="!checkPasswordMatch() && repeatPassword?.touched" class="text-erro font-medium">As senhas não
-              correspondem.</span>
-            <span *ngIf="checkPasswordMatch() && repeatPassword?.touched" class="text-primary-hover font-medium">As
-              senhas
-              correspondem.</span>
-          </div>
-
-          <div class="flex items-start mb-5">
-            <div class="flex items-center h-5">
-              <input id="terms" type="checkbox" formControlName="terms"
-                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                required />
-            </div>
-            <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Eu concordo com os <a
-                href="#" class="text-blue-600 hover:underline dark:text-blue-500">termos e condições</a></label>
-          </div>
-          <button type="submit"
-            class="text-white bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Criar
-            nova conta</button>
-        </form>
-      </div>
-      }
-      }
-
-      <div class="w-full md:flex items-center justify-end">
-        @if (step > 1) {
-        <button type="button" (click)="voltarPasso()"
-          class="mr-4 transition-opacity w-full md:w-auto flex items-center justify-center bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-md text-sm px-5 py-2.5 text-center">
-          Voltar
-        </button>
-        }
-
-        <button type="button" (click)="atualizarContinuar()"
-          class="text-white w-full md:w-auto flex items-center justify-center bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary font-semibold rounded-md text-sm px-5 py-2.5 text-center">
-          Atualizar e continuar
-        </button>
-      </div>
-    </div>
-  </div>
-
-</div> -->
-
-  <!-- Fim do header (Cadastro) -->
-
-  <!-- Desenho das etapas -->
-  <!-- <div class="flex flex-col items-center justify-center p-10" id="body">
-
-  <ol class="flex items-center w-full">
-    <li class="flex w-full items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-800">
-        <span class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0">
-            <svg class="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-            </svg>
-        </span>
-    </li>
-    <li class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
-        <span class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-            <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z"/>
-            </svg>
-        </span>
-    </li>
-    <li class="flex items-center w-full">
-        <span class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-            <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z"/>
-            </svg>
-        </span>
-    </li>
-</ol> -->
 </div>

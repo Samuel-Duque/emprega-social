@@ -16,6 +16,10 @@ export class AuthService {
     return this.http.post(environment.apiBaseUrl + '/auth/login', data);
   }
 
+  signUp(data: any): Observable<any> {
+    return this.http.post(environment.apiBaseUrl + '/auth/register', data);
+  }
+
   verifySession(): Observable<any> {
     return this.http.get(environment.apiBaseUrl + '/auth/verify');
   }

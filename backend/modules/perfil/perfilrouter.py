@@ -16,9 +16,9 @@ async def obter_perfil(id: str, supabase = Depends(get_supabase_client)):
     return await PerfilService.obter_perfil(id, supabase)
 
 @router.post("/criar")
-async def criar_perfil(perfil: Perfil, supabase = Depends(supabase_session)):
+async def criar_perfil(perfil: Perfil, supabase = Depends(get_supabase_client)):
     return await PerfilService.criar_perfil(perfil, supabase)
     
-@router.put("atualizar")
-async def atualizar_perfil(id: str, perfil: Perfil, supabase = Depends(supabase_session)):
+@router.put("atualizar/{id}")
+async def atualizar_perfil(id: str, perfil: Perfil, supabase = Depends(get_supabase_client)):
     return await PerfilService.atualizar_pefil(id, perfil, supabase)

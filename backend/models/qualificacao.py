@@ -2,6 +2,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Qualificacao(BaseModel):
+    
     titulo: str
     descricao: str
     duracao: str # 3 meses, 6 meses, 1 ano

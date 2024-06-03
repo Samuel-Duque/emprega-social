@@ -1,0 +1,64 @@
+<div class="container mx-auto pt-24 p-4 sm:p-8 md:p-20 xl:px-40">
+  <!-- Seção de Boas-vindas -->
+  <div class="bg-white rounded-lg shadow p-6 mb-8 flex items-center justify-between">
+    <div class="flex items-center">
+      <img [src]="usuario.foto" alt="Foto de {{ usuario.nome }}" class="w-20 h-20 object-cover object-center rounded-full mr-6">
+      <div>
+        <h1 class="text-3xl font-bold text-black">Bem-vindo(a), {{ usuario.nome }}</h1>
+        <p class="text-gray-600">Porcentagem das informações do seu perfil:</p>
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+          <div class="bg-green-500 h-2.5 rounded-full" [style.width.%]="usuario.progresso"></div>
+        </div>
+      </div>
+    </div>
+    <button class="bg-primary text-white py-2 px-6 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Editar meu perfil</button>
+  </div>
+
+  <!-- Seção de Oportunidades e Candidaturas -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+    <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
+      <div>
+        <h2 class="text-2xl font-bold text-black">{{ oportunidades }}</h2>
+        <p class="text-gray-600">Oportunidades</p>
+      </div>
+      <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">VER</button>
+    </div>
+    <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
+      <div>
+        <h2 class="text-2xl font-bold text-black">{{ candidaturas }}</h2>
+        <p class="text-gray-600">Candidaturas</p>
+      </div>
+      <button class="bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">VER</button>
+    </div>
+  </div>
+
+  <!-- Seção de Habilidades -->
+  <div class="bg-white rounded-lg shadow p-6 mb-8">
+    <h2 class="text-2xl font-bold text-black mb-4">Avaliação de habilidades de programação</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let habilidade of habilidades" class="bg-gray-100 rounded-lg p-4 flex items-center">
+        <img [src]="habilidade.icone" alt="{{ habilidade.nome }}" class="w-10 h-10 mr-4">
+        <div>
+          <h3 class="text-lg font-semibold text-black">{{ habilidade.nome }}</h3>
+          <p class="text-gray-600">Nivel {{ habilidade.nivel }}</p>
+        </div>
+      </div>
+    </div>
+    <button routerLink="/testes" class="mt-4 bg-primary text-white py-2 px-6 rounded-lg shadow hover:bg-primary-hover transition-colors duration-300">Ver mais testes</button>
+  </div>
+
+  <!-- Seção de Certificações -->
+  <div class="bg-white rounded-lg shadow p-6">
+    <h2 class="text-2xl font-bold text-black mb-4">Certificação Oficial de Inglês</h2>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="/assets/icons/gb.svg" alt="Certificação de Inglês" class="w-10 h-10 mr-4 rounded-xl">
+        <div>
+          <h3 class="text-lg font-semibold text-black">Inglês Certificação EF SET</h3>
+          <a href="https://example.com/get-certification" target="_blank" class="text-primary hover:underline">Obter meu certificado</a>
+        </div>
+      </div>
+      <span class="bg-green-500 text-white py-1 px-3 rounded-full">GRATUITO</span>
+    </div>
+  </div>
+</div>

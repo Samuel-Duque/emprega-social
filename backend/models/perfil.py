@@ -3,27 +3,30 @@ from pydantic import BaseModel
 
 class Perfil(BaseModel):
 
+    id: str
     nome: str
     sobrenome: str
-    id: str
     foto_perfil: str
+    data_nascimento: str
    
     model_config = {
         'json_schema_extra': {
             "example": {
+                "id": "1aa53296-ad39-4f15-be93-7006a87f5844",
                 "nome": "Vitor",
                 "sobrenome": "Gabriel",
-                "id": "b3a8e25c-c6ed-4cc1-a5dc-00e9cc138d76",
-                "foto_perfil": "https://files.tecnoblog.net/wp-content/uploads/2022/09/stable-diffusion-imagem.jpg"
+                "foto_perfil": "https://files.tecnoblog.net/wp-content/uploads/2022/09/stable-diffusion-imagem.jpg",
+                "data_nascimento": "2002-03-25"
             }
         }
     }
 
     def model_dump(self):
         return {
+            "id": self.id,
             "nome": self.nome,
             "sobrenome": self.sobrenome,
-            'id': self.id,
-            'foto_perfil': self.foto_perfil
+            'foto_perfil': self.foto_perfil,
+            'data_nascimento': self.data_nascimento
         }
     

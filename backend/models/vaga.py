@@ -3,6 +3,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Vaga(BaseModel):
+    
     id_empresa: str
     titulo: str
     descricao: str
@@ -32,7 +33,7 @@ class Vaga(BaseModel):
     model_config = {
         'json_schema_extra': {
             "example": {
-                "id_empresa": "1",
+                "id_empresa": "5878aa24-2f6e-47c8-9ea9-dc6b7efbce4d",
                 "titulo": "Desenvolvedor Full Stack",
                 "descricao": "Desenvolvimento de aplicações web",
                 "salario": 5000.00,

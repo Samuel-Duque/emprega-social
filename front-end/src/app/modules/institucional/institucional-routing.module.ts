@@ -42,7 +42,7 @@ const routes: Routes = [
       {
         path: 'para-empresas',
         component: ParaEmpresasComponent,
-      }
+      },
     ],
   },
   {

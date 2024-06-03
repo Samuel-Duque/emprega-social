@@ -10,7 +10,7 @@ class Candidatura(BaseModel):
         'json_schema_extra': {
             "example": {
                 "id_vaga": "d7b1cd69-a2e9-4c8f-88a1-d760741e0378",
-                "id_candidato": "3e6952c7-fb3c-4bbc-bd5a-1703e8a6c832",
+                "id_candidato": "0efa5403-5903-408d-a2af-a4dd561c6016",
             }
         }
     }

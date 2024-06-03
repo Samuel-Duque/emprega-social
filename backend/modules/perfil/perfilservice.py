@@ -32,6 +32,15 @@ class PerfilService:
     return data
   
   @staticmethod
+  async def criar_perfil(perfil: Perfil, supabase: Client):
+    try:
+      response = supabase.table("usuarios").insert(perfil.model_dump()).execute()
+    except Exception as e:
+      print(e)
+      raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar criar o perfil")
+    return response
+  
+  @staticmethod
   async def atualizar_pefil(id: int, perfil: Perfil, supabase: Client):
 
     try:
@@ -41,13 +50,5 @@ class PerfilService:
       raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar atualizar o perfil")
     return response
   
-  @staticmethod
-  async def criar_perfil(perfil: Perfil, supabase: Client):
-    try:
-      perfil["id"] = supabase.auth.get_session().user.id
-      response = supabase.table("usuarios").insert(perfil.model_dump()).execute()
-    except Exception as e:
-      print(e)
-      raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar criar o perfil")
-    return response
+
   

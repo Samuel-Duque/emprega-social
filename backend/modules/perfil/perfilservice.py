@@ -11,21 +11,32 @@ from modules.auth.models.register import Register
 
 class PerfilService:
   
-  @staticmethod
-  async def obter_perfis(supabase: Client):
-    try:
-        data = supabase.table('usuarios').select('*').execute()
+  # @staticmethod
+  # async def obter_perfis(supabase: Client):
+  #   try:
+  #       data = supabase.table('usuarios').select('*').execute()
 
-    except Exception as e:
-      print(e)
-      raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar obter os perfis")
-    return data
+  #   except Exception as e:
+  #     print(e)
+  #     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ocorreu um erro ao tentar obter os perfis")
+  #   return data
   
   @staticmethod
-  async def obter_perfil(id: str, supabase: Client):
+  async def obter_perfil(supabase: Client):
 
     try:
-      data = supabase.table("usuarios").select("*").eq("id", id).single().execute()
+      id = supabase.auth.get_session().user.id
+      email = supabase.auth.get_session().user.email
+
+      # Pegando a função do usuário
+      token = supabase.auth.get_session().access_token
+      decoded = supabase_jwt_decode(token)
+      regra = decoded['funcao_usuario'] if decoded['funcao_usuario'] is not None else 'candidato'
+
+      data = supabase.table("usuarios").select("nome, sobrenome, foto_perfil").eq("id", id).single().execute()
+      data.data["email"] = email
+      data.data["regra"] = regra
+
     except Exception as e:
       print(e)
       raise HTTPException(status_code=status.HTTP_200_OK, detail="Ocorreu um erro ao tentar obter o perfil")

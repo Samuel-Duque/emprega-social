@@ -36,6 +36,13 @@ O Emprega Social visa solucionar esses problemas através da criação de uma pl
 * **Back-end:** Python (framework FastAPI)
 * **Banco de dados:** PostgreSQL (Supabase)
 
+## Testes
+
+* Para entrar na aba de login você pode utilizar o acesso de admin:
+* email: ` admin@gmail.com ` 
+* senha: ` 1234 `
+
+  
 ## Fluxo de Usuário
 
 **Empresa:**

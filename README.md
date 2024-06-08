@@ -78,5 +78,5 @@ O Emprega Social visa solucionar esses problemas através da criação de uma pl
 
 # Pessoas Por Trás do Emprega Social
 
-| [<img loading="lazy" src="https://avatars.githubusercontent.com/Samuel-Duque" width=115><br><sub>Samuel Duque</sub>](https://github.com/Samuel-Duque) | [<img loading="lazy" src="https://avatars.githubusercontent.com/Tiago-msC" width=115><br><sub>Tiago Cunha</sub>](https://github.com/Tiago-msC) | [<img loading="lazy" src="https://avatars.githubusercontent.com/samyrafariass" width=115><br><sub>Samyra Farias</sub>](https://github.com/samyrafariass) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/Vitor-Moura48" width=115><br><sub>Vitor Gabriel</sub>](https://github.com/Vitor-Moura48) |
-| --- | --- | --- | --- |
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/Samuel-Duque" width=115><br><sub>Samuel Duque</sub>](https://github.com/Samuel-Duque) | [<img loading="lazy" src="https://avatars.githubusercontent.com/Tiago-msC" width=115><br><sub>Tiago Cunha</sub>](https://github.com/Tiago-msC) | [<img loading="lazy" src="https://avatars.githubusercontent.com/Vitor-Moura48" width=115><br><sub>Vitor Gabriel</sub>](https://github.com/Vitor-Moura48) |
+| --- | --- | --- |
